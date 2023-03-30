@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "image": "https://via.placeholder.com/150",
+    "role": "Club Lead",
+    "description": "John is responsible for leading and managing the overall club, ensuring that it runs smoothly and that all members are engaged and productive."
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "image": "https://via.placeholder.com/150",
+    "role": "Event Coordinator",
+    "description": "Jane is responsible for organizing and managing events and activities for the club. This includes scheduling, logistics, and outreach to members."
+  },
+  {
+    "id": 3,
+    "name": "Mike Johnson",
+    "image": "https://via.placeholder.com/150",
+    "role": "Marketing Lead",
+    "description": "Mike is responsible for promoting the club and its events to the wider community. This can include social media, flyers, and other promotional materials."
+  },
+  {
+    "id": 4,
+    "name": "Samantha Lee",
+    "image": "https://via.placeholder.com/150",
+    "role": "Technical Lead",
+    "description": "Samantha is responsible for overseeing the technical aspects of the club, including website development, app development, and other technical projects."
+  },
+  {
+    "id": 5,
+    "name": "David Kim",
+    "image": "https://via.placeholder.com/150",
+    "role": "Mentorship Lead",
+    "description": "David is responsible for providing guidance and support to club members who need help with their technical skills or professional development."
+  },
+  {
+    "id": 6,
+    "name": "Emily Chen",
+    "image": "https://via.placeholder.com/150",
+    "role": "Design Lead",
+    "description": "Emily is responsible for creating visual designs for the club's website, social media accounts, and other promotional materials."
+  },
+  {
+    "id": 7,
+    "name": "Tom Wilson",
+    "image": "https://via.placeholder.com/150",
+    "role": "Outreach Lead",
+    "description": "Tom is responsible for reaching out to potential partners, sponsors, and collaborators to expand the club's network and resources."
+  },
+  {
+    "id": 8,
+    "name": "Linda Nguyen",
+    "image": "https://via.placeholder.com/150",
+    "role": "Club Member",
+    "description": "Linda is an ordinary member of the club, participating in various club activities and contributing to the club's mission."
+  }
+]

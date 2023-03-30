@@ -1,42 +1,81 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Colors used where from open color(https://yeun.github.io/open-color) and converted into hsl from https://convertacolor.com */
+
+/*
+  FONT SIZE SYSTEM(px)
+  10 /  12 / 14 / 16 / 18 / 20 / 24 / 24 / 36 / 44 / 52 / 62 / 74 / 86 / 98 
+
+  SPACING SYSTEM(px)
+  2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128 
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+/* @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap"); */
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+:root {
+  --color-primary: #228be6;
+  --color-primary-light: #74c0fc;
+  --color-primary-dark: #1864ab;
+  --color-secondary: #37b24d;
+  --color-secondary-light: #69db7c;
+  --color-secondary-dark: #2b8a3e;
+
+  --color-grey-light-1: #f1f3f5;
+  --color-grey-light-2: #e9ecef;
+  --color-grey-light-3: #dee2e6;
+  --color-grey-light-4: #ced4da;
+
+  --color-grey-dark-1: #868e96;
+  --color-grey-dark-2: #495057;
+  --color-grey-dark-3: #343a40;
+  --color-grey-dark-4: #212529;
+
+  --shadow-dark: 0rem 0rem 0.2rem 0.2rem hsla(0, 0%, 0%, 0.15);
+  --shadow-light: 0.2rem 0.4rem 0.6rem 0.2rem hsla(0, 0%, 0%, 0.08);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+body {
+  font-weight: 400;
+  line-height: 1.6;
+  font-family: "Inter", sans-serif;
+  /* font-family: "Rubik", sans-serif; */
+  font-size: 62.5%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--color-grey-dark-4);
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+.pages {
+  position: relative;
+  box-shadow: var(--shadow-dark);
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+  flex: 1;
+  @media (max-width: 800px) {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.component {
+  position: inherit;
+  /* display: flex;
+   flex: 1;
+   flex-direction: column;
+   background-color: var(--color-grey-light-2);
+   position: relative; */
 }

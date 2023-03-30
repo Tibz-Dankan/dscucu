@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Tech Talk",
+    "description": "Monthly talk on trending technologies in the tech industry",
+    "image": "tech-talk.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Hackathon",
+    "description": "A 24-hour coding competition to build solutions for real-world problems",
+    "image": "hackathon.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Workshop",
+    "description": "Hands-on training on a specific technology or tool",
+    "image": "workshop.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Project Showcase",
+    "description": "Opportunity to showcase personal or team projects built using Google's technologies",
+    "image": "project-showcase.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Study Jam",
+    "description": "Group study sessions to prepare for Google's certification exams",
+    "image": "study-jam.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Guest Speaker",
+    "description": "Inviting experienced developers to speak on various topics in the tech industry",
+    "image": "guest-speaker.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Code Lab",
+    "description": "Hands-on coding sessions to learn new technologies and tools",
+    "image": "code-lab.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Career Fair",
+    "description": "Bringing tech companies to campus to meet and recruit potential hires",
+    "image": "career-fair.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Tech Outreach",
+    "description": "Organizing workshops and coding sessions for high school students to inspire them to pursue careers in tech",
+    "image": "tech-outreach.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Community Service",
+    "description": "Using technology to address social issues in the community",
+    "image": "community-service.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Google Cloud Bootcamp",
+    "description": "Intensive training on Google Cloud technologies",
+    "image": "cloud-bootcamp.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Design Sprint",
+    "description": "A 5-day process for ideation, prototyping, and testing solutions to real-world problems",
+    "image": "design-sprint.jpg"
+  }
+]

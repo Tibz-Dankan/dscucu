@@ -1,0 +1,9 @@
+.home {
+  font-size: 1.8rem;
+}
+
+.home-header {
+  background-image: url("hero-bg-image.png");
+  background-size: cover;
+  background-position: center;
+}

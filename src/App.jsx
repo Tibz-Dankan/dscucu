@@ -1,35 +1,100 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, Fragment, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import Home from "./pages/Home/Home";
+import "./App.css";
+import SignInSide from "./components/MUI/MuiSignin";
+import SignIn from "./components/MUI/Signin";
+import SignUp from "./components/MUI/SignUp";
+import Album from "./components/MUI/Album";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const tryLogin = async () => {
+      const userData = localStorage.getItem("userData");
+      const parsedData = JSON.parse(userData);
+      if (!userData) {
+        console.log("no data found");
+        return <Route path="/" element={<Navigate to="/login" replace />} />;
+      }
+      const { user, token } = parsedData;
+
+      if (!token || !user) {
+        return <Route path="/" element={<Navigate to="/login" replace />} />;
+        //TODO: Delete auth data in local  storage
+      }
+      setIsLoggedIn(true);
+    };
+    tryLogin();
+  }, []);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="app">
+      <BrowserRouter>
+        {!isLoggedIn && (
+          <Routes>
+            <Fragment>
+              <Route path="/" element={<Home />} />
+              <Route path="register" element={<Register />} />
+              <Route path="login" element={<Login />} />
+              <Route path="mui-login-side" element={<SignInSide />} />
+              <Route path="mui-login" element={<SignIn />} />
+              <Route path="mui-register" element={<SignUp />} />
+              <Route path="mui-album" element={<Album />} />
+              <Route
+                path="signup"
+                element={<Navigate to="/register" replace />}
+              />
+              <Route path="signin" element={<Navigate to="/login" replace />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Fragment>
+          </Routes>
+        )}
+
+        {/* {isLoggedIn && (
+          <Fragment>
+            <div className="pages">
+              <SideBar />
+              <Routes>
+                <Route
+                  path="chat"
+                  element={
+                    <div className="pages__component">
+                      <Header title={"Chat"} />
+                      <Chat socket={socket} />
+                    </div>
+                  }
+                />
+                <Route
+                  path="profile"
+                  element={
+                    <div className="pages__component">
+                      <Header title={"Profile"} />
+                      <Profile />
+                    </div>
+                  }
+                />
+                <Route
+                  path="settings"
+                  element={
+                    <div className="pages__component">
+                      <Header title={"Settings"} />
+                      <Settings />
+                    </div>
+                  }
+                />
+                <Route path="/" element={<Navigate to="/chat" replace />} />
+                <Route path="*" element={<Navigate to="/chat" replace />} />
+              </Routes>
+            </div>
+          </Fragment>
+        )} */}
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
