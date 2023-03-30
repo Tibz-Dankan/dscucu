@@ -1,8 +1,45 @@
-import React, { Fragment, useState } from "react";
-import "./Register.css";
+import React, { useState, useEffect } from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Alert from "@mui/material/Alert";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { User } from "../../utils/user";
 
-const Register = () => {
+function Copyright(props) {
+  return (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
+
+const theme = createTheme({
+  typography: {
+    fontSize: 24,
+  },
+});
+
+export default function Register() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -39,7 +76,7 @@ const Register = () => {
       !formData.confirmPassword.trim() ||
       formData.confirmPassword !== formData.password
     ) {
-      errors.confirmPassword = "Password don't much";
+      errors.confirmPassword = "Passwords don't much";
     }
     return errors;
   };
@@ -58,6 +95,7 @@ const Register = () => {
       setErrors({ email: err.email });
       return;
     }
+    // TODO: redirect to members page
   };
 
   const handleChange = (e) => {
@@ -66,88 +104,139 @@ const Register = () => {
   };
 
   return (
-    <Fragment>
-      <div className="register">
-        {/* show successful confirmation here */}
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            {errors.firstName && <p className="error">{errors.firstName}</p>}
-            <label htmlFor="firstName">FirstName:</label>
-            <input
-              type="text"
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 0,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Register
+          </Typography>
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+            sx={{ mt: 1, fontSize: 16 }}
+          >
+            <TextField
+              margin="normal"
+              required
+              fullWidth
               id="firstName"
+              label="FirstName"
               name="firstName"
-              value={formData.firstName}
+              autoComplete="firstName"
+              autoFocus
               onChange={handleChange}
             />
-          </div>
+            {errors.firstName && (
+              <Alert severity="error">{errors.firstName}</Alert>
+            )}
 
-          <div className="form-group">
-            {errors.lastName && <p className="error">{errors.lastName}</p>}
-            <label htmlFor="lastName">LastName:</label>
-            <input
-              type="text"
+            <TextField
+              margin="normal"
+              required
+              fullWidth
               id="lastName"
+              label="Last Name"
               name="lastName"
-              value={formData.lastName}
+              autoComplete="lastName"
+              autoFocus
               onChange={handleChange}
             />
-          </div>
+            {errors.lastName && (
+              <Alert severity="error">{errors.lastName}</Alert>
+            )}
 
-          <div className="form-group">
-            {errors.email && <p className="error">{errors.email}</p>}
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
+            <TextField
+              margin="normal"
+              required
+              fullWidth
               id="email"
+              label="Email Address"
               name="email"
-              value={formData.email}
+              autoComplete="email"
+              autoFocus
               onChange={handleChange}
             />
-          </div>
+            {errors.email && <Alert severity="error">{errors.email}</Alert>}
 
-          <div className="form-group">
-            {errors.phone && <p className="error">{errors.phone}</p>}
-            <label htmlFor="phone">Phone:</label>
-            <input
-              type="text"
+            <TextField
+              margin="normal"
+              required
+              fullWidth
               id="phone"
+              label="Phone Number"
               name="phone"
-              value={formData.phone}
+              autoComplete="phone"
+              autoFocus
               onChange={handleChange}
             />
-          </div>
+            {errors.phone && <Alert severity="error">{errors.phone}</Alert>}
 
-          <div className="form-group">
-            {errors.password && <p className="error">{errors.password}</p>}
-            <label htmlFor="password">Password:</label>
-            <input
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
               type="password"
               id="password"
-              name="password"
-              value={formData.password}
+              autoComplete="current-password"
               onChange={handleChange}
             />
-          </div>
-
-          <div className="form-group">
-            {errors.confirmPassword && (
-              <p className="error">{errors.confirmPassword}</p>
+            {errors.password && (
+              <Alert severity="error">{errors.password}</Alert>
             )}
-            <label htmlFor="confirmPassword">Confirm Password:</label>
-            <input
-              type="password"
+
+            <TextField
+              margin="normal"
+              required
+              fullWidth
               id="confirmPassword"
+              label="Confirm Password"
+              type="password"
               name="confirmPassword"
-              value={formData.confirmPassword}
+              autoComplete="confirmPassword"
+              autoFocus
               onChange={handleChange}
             />
-          </div>
-          <button type="submit">Register</button>
-        </form>
-      </div>
-    </Fragment>
-  );
-};
+            {errors.confirmPassword && (
+              <Alert severity="error">{errors.confirmPassword}</Alert>
+            )}
 
-export default Register;
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Register
+            </Button>
+            <Grid container>
+              <Grid item>
+                <Link href="#" variant="body2">
+                  {"Already have an account? Log In"}
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+        <Copyright sx={{ mt: 8, mb: 4 }} />
+      </Container>
+    </ThemeProvider>
+  );
+}
