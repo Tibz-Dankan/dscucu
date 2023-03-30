@@ -108,11 +108,13 @@ export default function Register() {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
+          // height="100vh"
           sx={{
             marginTop: 0,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            paddingTop: 8,
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
@@ -228,14 +230,14 @@ export default function Register() {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/login" variant="body2">
                   {"Already have an account? Log In"}
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        <Copyright sx={{ mt: 8, pb: 4 }} />
       </Container>
     </ThemeProvider>
   );
