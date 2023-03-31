@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Home from "./pages/Home/Home";
+import Profile from "./pages/profile/Profile";
 import "./App.css";
 import SignInSide from "./components/MUI/MuiSignin";
 import SignIn from "./components/MUI/Signin";
@@ -13,7 +14,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const tryLogin = async () => {
+    const tryLogin = () => {
       const userData = localStorage.getItem("userData");
       const parsedData = JSON.parse(userData);
       if (!userData) {
@@ -40,6 +41,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="register" element={<Register />} />
               <Route path="login" element={<Login />} />
+              <Route path="profile" element={<Profile />} />
               <Route path="mui-login-side" element={<SignInSide />} />
               <Route path="mui-login" element={<SignIn />} />
               <Route path="mui-register" element={<SignUp />} />

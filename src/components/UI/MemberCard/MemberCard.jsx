@@ -7,10 +7,18 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 import "./MemberCard.css";
+import { useUpdateProfile } from "../../../context/ProfileContext";
 
 const MemberCard = (props) => {
+  const updateProfile = useUpdateProfile({});
+
+  const handleUpdateProfile = (payload) => {
+    updateProfile(payload);
+  };
+
   return (
     <Grid item key={props.id} xs={12} sm={6} md={4}>
       <Card
@@ -23,11 +31,9 @@ const MemberCard = (props) => {
       >
         <CardMedia
           component="img"
-          sx={
-            {
-              // pt: "56.25%"
-            }
-          }
+          sx={{
+            borderRadius: "50%",
+          }}
           image={props.image}
           alt={props.name}
         />
@@ -36,12 +42,27 @@ const MemberCard = (props) => {
             {props.name}
           </Typography>
           <Typography>{props.role}</Typography>
-          {/* <Typography>{props.description}</Typography> */}{" "}
-          {/*To be shown on another page*/}
         </CardContent>
         <CardActions>
-          <Button size="small">View</Button>
-          {/*TODO: Redirect to profile page on click with details of a team member */}
+          <Button
+            size="small"
+            onClick={() => {
+              handleUpdateProfile(props);
+            }}
+          >
+            <Link
+              to="profile"
+              style={{
+                backgroundColor: "#228be6",
+                color: "#fff",
+                textDecoration: "none",
+                borderRadius: "4px",
+                padding: "4px 16px",
+              }}
+            >
+              View
+            </Link>
+          </Button>
         </CardActions>
       </Card>
     </Grid>
