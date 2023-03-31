@@ -18,11 +18,16 @@ const MemberCard = (props) => {
           height: "100%",
           display: "flex",
           flexDirection: "column",
+          bgcolor: "#f1f3f5",
         }}
       >
         <CardMedia
           component="img"
-          sx={{ pt: "56.25%" }}
+          sx={
+            {
+              // pt: "56.25%"
+            }
+          }
           image={props.image}
           alt={props.name}
         />

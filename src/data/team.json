@@ -1,58 +1,44 @@
 [
   {
     "id": 1,
-    "name": "John Doe",
-    "image": "https://via.placeholder.com/150",
-    "role": "Club Lead",
-    "description": "John is responsible for leading and managing the overall club, ensuring that it runs smoothly and that all members are engaged and productive."
+    "name": "Avery Thomas",
+    "image": "https://randomuser.me/api/portraits/women/1.jpg",
+    "role": "Project Manager",
+    "description": "Avery is responsible for overseeing the frontend development process and ensuring that the project stays on track."
   },
   {
     "id": 2,
-    "name": "Jane Smith",
-    "image": "https://via.placeholder.com/150",
-    "role": "Event Coordinator",
-    "description": "Jane is responsible for organizing and managing events and activities for the club. This includes scheduling, logistics, and outreach to members."
+    "name": "Landon Martinez",
+    "image": "https://randomuser.me/api/portraits/men/2.jpg",
+    "role": "UI/UX Designer",
+    "description": "Landon is responsible for designing the user interface and experience for the application, ensuring that it is intuitive and easy to use."
   },
   {
     "id": 3,
-    "name": "Mike Johnson",
-    "image": "https://via.placeholder.com/150",
-    "role": "Marketing Lead",
-    "description": "Mike is responsible for promoting the club and its events to the wider community. This can include social media, flyers, and other promotional materials."
+    "name": "Isabella Lee",
+    "image": "https://randomuser.me/api/portraits/women/3.jpg",
+    "role": "Frontend Developer",
+    "description": "Isabella is responsible for writing the code that powers the frontend of the application, bringing the design to life."
   },
   {
     "id": 4,
-    "name": "Samantha Lee",
-    "image": "https://via.placeholder.com/150",
-    "role": "Technical Lead",
-    "description": "Samantha is responsible for overseeing the technical aspects of the club, including website development, app development, and other technical projects."
+    "name": "Lucas Rodriguez",
+    "image": "https://randomuser.me/api/portraits/men/4.jpg",
+    "role": "Quality Assurance Tester",
+    "description": "Lucas is responsible for testing the frontend of the application, ensuring that it is bug-free and functioning correctly."
   },
   {
     "id": 5,
-    "name": "David Kim",
-    "image": "https://via.placeholder.com/150",
-    "role": "Mentorship Lead",
-    "description": "David is responsible for providing guidance and support to club members who need help with their technical skills or professional development."
+    "name": "Sophia Patel",
+    "image": "https://randomuser.me/api/portraits/women/5.jpg",
+    "role": "Accessibility Specialist",
+    "description": "Sophia is responsible for ensuring that the frontend of the application is accessible to users with disabilities, following best practices and guidelines."
   },
   {
     "id": 6,
-    "name": "Emily Chen",
-    "image": "https://via.placeholder.com/150",
-    "role": "Design Lead",
-    "description": "Emily is responsible for creating visual designs for the club's website, social media accounts, and other promotional materials."
-  },
-  {
-    "id": 7,
-    "name": "Tom Wilson",
-    "image": "https://via.placeholder.com/150",
-    "role": "Outreach Lead",
-    "description": "Tom is responsible for reaching out to potential partners, sponsors, and collaborators to expand the club's network and resources."
-  },
-  {
-    "id": 8,
-    "name": "Linda Nguyen",
-    "image": "https://via.placeholder.com/150",
-    "role": "Club Member",
-    "description": "Linda is an ordinary member of the club, participating in various club activities and contributing to the club's mission."
+    "name": "Ethan Kim",
+    "image": "https://randomuser.me/api/portraits/men/6.jpg",
+    "role": "Frontend Engineer",
+    "description": "Ethan is responsible for developing and maintaining the frontend codebase of the application, implementing new features and optimizing performance."
   }
 ]

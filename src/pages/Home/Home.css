@@ -1,9 +1,10 @@
 .home {
   font-size: 1.8rem;
 }
-
+/* 
 .home-header {
-  background-image: url("hero-bg-image.png");
+  background-color: green;
+  background-image: url("../../assets/hero-bg-image.png");
   background-size: cover;
   background-position: center;
-}
+} */

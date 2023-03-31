@@ -12,10 +12,9 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Alert from "@mui/material/Alert";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Auth } from "../../utils/auth";
 
-function Copyright(props) {
+const Copyright = (props) => {
   return (
     <Typography
       variant="body2"
@@ -24,20 +23,14 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://dsc-ucu.netlify.app/">
+        DSCUCU community
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
     </Typography>
   );
-}
-
-const theme = createTheme({
-  typography: {
-    fontSize: 24,
-  },
-});
+};
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -93,80 +86,92 @@ export default function Login() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          height="100vh"
-          sx={{
-            marginTop: 0,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            paddingTop: 8,
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            LogIn
-          </Typography>
-          <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Box
+        height="100vh"
+        sx={{
+          marginTop: 0,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          paddingTop: 8,
+        }}
+      >
+        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          LogIn
+        </Typography>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            onChange={handleChange}
+          />
+          {errors.email && <Alert severity="error">{errors.email}</Alert>}
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            onChange={handleChange}
+          />
+          {errors.password && <Alert severity="error">{errors.password}</Alert>}
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2, height: 48 }}
           >
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              onChange={handleChange}
-            />
-            {errors.email && <Alert severity="error">{errors.email}</Alert>}
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              onChange={handleChange}
-            />
-            {errors.password && (
-              <Alert severity="error">{errors.password}</Alert>
-            )}
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              LogIn
-            </Button>
-            <Grid container>
-              <Grid item>
-                <Link href="/register" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
+            LogIn
+          </Button>
+          <Grid container>
+            <Grid item>
+              <Link href="/register" variant="body2">
+                {"Don't have an account? Sign Up"}
+              </Link>
             </Grid>
-          </Box>
+          </Grid>
         </Box>
-        <Copyright sx={{ mt: 8, pb: 4 }} />
-      </Container>
-    </ThemeProvider>
+      </Box>
+      <Box
+        sx={{
+          bgcolor: "background.paper",
+          p: 6,
+          mt: 6,
+          bgcolor: "#f1f3f5",
+          borderTop: "1px solid #ddd",
+        }}
+        component="footer"
+      >
+        <Typography
+          variant="subtitle1"
+          align="center"
+          color="text.secondary"
+          component="p"
+        >
+          Join us and be part of our community - where creativity meets
+          technology!
+        </Typography>
+        <Copyright />
+      </Box>
+      {/* End footer */}
+    </Container>
   );
 }
