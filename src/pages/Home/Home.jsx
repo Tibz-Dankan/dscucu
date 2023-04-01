@@ -196,7 +196,7 @@ export default function Home() {
       {/* Footer */}
       <Box
         sx={{
-          bgcolor: "background.paper",
+          // bgcolor: "background.paper",
           p: 6,
           bgcolor: "#f1f3f5",
           borderTop: "1px solid #ddd",

@@ -14,6 +14,7 @@ import Container from "@mui/material/Container";
 import Alert from "@mui/material/Alert";
 import { User } from "../../utils/user";
 import { Card, CardContent, CardActions } from "@mui/material";
+import { Email } from "../../utils/email";
 
 const Copyright = (props) => {
   return (
@@ -88,6 +89,12 @@ export default function Register() {
     });
   };
 
+  // const handleSendConfirmationEmail = async (recipient) => {
+  //   console.log("sending email");
+  //   await new Email(recipient).ConfirmRegistration(registeredUser.lastName);
+  //   console.log("finished sending email");
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -106,6 +113,7 @@ export default function Register() {
     setRegisteredUser(newUser);
     setIsRegistered(true);
     clearFormData();
+    // handleSendConfirmationEmail();
   };
 
   const handleChange = (e) => {
@@ -292,9 +300,8 @@ export default function Register() {
       {/* Footer */}
       <Box
         sx={{
-          bgcolor: "background.paper",
+          // bgcolor: "background.paper",
           p: 6,
-          mt: 6,
           bgcolor: "#f1f3f5",
           borderTop: "1px solid #ddd",
         }}

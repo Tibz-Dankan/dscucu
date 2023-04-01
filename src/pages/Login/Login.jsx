@@ -150,11 +150,11 @@ export default function Login() {
           </Grid>
         </Box>
       </Box>
+      {/* footer */}
       <Box
         sx={{
-          bgcolor: "background.paper",
+          // bgcolor: "background.paper",
           p: 6,
-          mt: 6,
           bgcolor: "#f1f3f5",
           borderTop: "1px solid #ddd",
         }}
