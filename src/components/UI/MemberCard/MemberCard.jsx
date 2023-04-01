@@ -60,7 +60,7 @@ const MemberCard = (props) => {
                 padding: "4px 16px",
               }}
             >
-              View
+              View Profile
             </Link>
           </Button>
         </CardActions>
