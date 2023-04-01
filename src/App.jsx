@@ -5,10 +5,7 @@ import Register from "./pages/Register/Register";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/profile/Profile";
 import "./App.css";
-import SignInSide from "./components/MUI/MuiSignin";
-import SignIn from "./components/MUI/Signin";
-import SignUp from "./components/MUI/SignUp";
-import Album from "./components/MUI/Album";
+import MasterLayout from "./components/layouts/MasterLayout/MasterLayout";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -42,10 +39,7 @@ function App() {
               <Route path="register" element={<Register />} />
               <Route path="login" element={<Login />} />
               <Route path="profile" element={<Profile />} />
-              <Route path="mui-login-side" element={<SignInSide />} />
-              <Route path="mui-login" element={<SignIn />} />
-              <Route path="mui-register" element={<SignUp />} />
-              <Route path="mui-album" element={<Album />} />
+              <Route path="mui-master-layout" element={<MasterLayout />} />
               <Route
                 path="signup"
                 element={<Navigate to="/register" replace />}

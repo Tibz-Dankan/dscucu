@@ -1,16 +1,12 @@
 import * as React from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
+// import Paper from "@mui/material/Paper";
 import Link from "@mui/material/Link";
-import Chart from "../../MUI/Dashboard/Chart";
-import Deposits from "../../MUI/Dashboard/Deposits";
-import Orders from "../../MUI/Dashboard/Orders";
 import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
 
@@ -32,9 +28,7 @@ function Copyright(props) {
   );
 }
 
-const mdTheme = createTheme();
-
-function MasterLayoutContent() {
+const MasterLayout = (props) => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -57,7 +51,7 @@ function MasterLayoutContent() {
         <Toolbar />
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
           <Grid container spacing={3}>
-            {/* pros */}
+            {props.children}
           </Grid>
           <Copyright sx={{ pt: 4 }} />
         </Container>
@@ -65,8 +59,6 @@ function MasterLayoutContent() {
       {/* main Content end*/}
     </Box>
   );
-}
+};
 
-export default function MasterLayout() {
-  return <MasterLayoutContent />;
-}
+export default MasterLayout;
