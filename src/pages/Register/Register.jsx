@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Alert from "@mui/material/Alert";
 import { User } from "../../utils/user";
+import { Card, CardContent, CardActions } from "@mui/material";
 
 const Copyright = (props) => {
   return (
@@ -43,6 +44,8 @@ export default function Register() {
   });
 
   const [errors, setErrors] = useState({});
+  const [isRegistered, setIsRegistered] = useState(false);
+  const [registeredUser, setRegisteredUser] = useState({});
 
   const validate = () => {
     let errors = {};
@@ -74,6 +77,17 @@ export default function Register() {
     return errors;
   };
 
+  const clearFormData = () => {
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      password: "",
+      confirmPassword: "",
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -82,13 +96,16 @@ export default function Register() {
       return;
     }
     const user = new User();
-    user.create(formData);
+    const newUser = user.create(formData);
     const err = user.errors;
-    if (err) {
+    if (err?.email) {
       setErrors({ email: err.email });
       return;
     }
-    // TODO: redirect to members page
+
+    setRegisteredUser(newUser);
+    setIsRegistered(true);
+    clearFormData();
   };
 
   const handleChange = (e) => {
@@ -100,7 +117,6 @@ export default function Register() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Box
-        // height="100vh"
         sx={{
           marginTop: 0,
           display: "flex",
@@ -115,116 +131,164 @@ export default function Register() {
         <Typography component="h1" variant="h5">
           Register
         </Typography>
-        <Box
-          component="form"
-          onSubmit={handleSubmit}
-          noValidate
-          sx={{ mt: 1, fontSize: 16 }}
-        >
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="firstName"
-            label="FirstName"
-            name="firstName"
-            autoComplete="firstName"
-            autoFocus
-            onChange={handleChange}
-          />
-          {errors.firstName && (
-            <Alert severity="error">{errors.firstName}</Alert>
-          )}
-
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="lastName"
-            label="Last Name"
-            name="lastName"
-            autoComplete="lastName"
-            autoFocus
-            onChange={handleChange}
-          />
-          {errors.lastName && <Alert severity="error">{errors.lastName}</Alert>}
-
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-            onChange={handleChange}
-          />
-          {errors.email && <Alert severity="error">{errors.email}</Alert>}
-
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="phone"
-            label="Phone Number"
-            name="phone"
-            autoComplete="phone"
-            autoFocus
-            onChange={handleChange}
-          />
-          {errors.phone && <Alert severity="error">{errors.phone}</Alert>}
-
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            onChange={handleChange}
-          />
-          {errors.password && <Alert severity="error">{errors.password}</Alert>}
-
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="confirmPassword"
-            label="Confirm Password"
-            type="password"
-            name="confirmPassword"
-            autoComplete="confirmPassword"
-            autoFocus
-            onChange={handleChange}
-          />
-          {errors.confirmPassword && (
-            <Alert severity="error">{errors.confirmPassword}</Alert>
-          )}
-
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2, height: 48 }}
+        {isRegistered && (
+          <Card
+            sx={{
+              mt: 1,
+              fontSize: 16,
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              bgcolor: "#f1f3f5",
+            }}
           >
-            Register
-          </Button>
-          <Grid container>
-            <Grid item>
-              <Link href="/login" variant="body2">
-                {"Already have an account? Log In"}
-              </Link>
+            <CardContent sx={{ flexGrow: 1 }}>
+              <Alert severity="success">You have registered successfully</Alert>
+
+              <Typography gutterBottom variant="h5" component="h3">
+                Registration Details
+              </Typography>
+              <Typography>FirstName: {registeredUser.firstName}</Typography>
+              <Typography>LastName: {registeredUser.lastName}</Typography>
+              <Typography>Email: {registeredUser.email}</Typography>
+              <Typography>PhoneNumber: {registeredUser.phone}</Typography>
+              <Typography>Password: {registeredUser.password}</Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">
+                <Link
+                  href="login"
+                  style={{
+                    backgroundColor: "#228be6",
+                    color: "#fff",
+                    textDecoration: "none",
+                    borderRadius: "4px",
+                    padding: "4px 16px",
+                  }}
+                >
+                  LogIn
+                </Link>
+              </Button>
+            </CardActions>
+          </Card>
+        )}
+        {!isRegistered && (
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+            sx={{ mt: 1, fontSize: 16 }}
+          >
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="firstName"
+              label="FirstName"
+              name="firstName"
+              autoComplete="firstName"
+              autoFocus
+              onChange={handleChange}
+            />
+            {errors.firstName && (
+              <Alert severity="error">{errors.firstName}</Alert>
+            )}
+
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="lastName"
+              label="Last Name"
+              name="lastName"
+              autoComplete="lastName"
+              autoFocus
+              onChange={handleChange}
+            />
+            {errors.lastName && (
+              <Alert severity="error">{errors.lastName}</Alert>
+            )}
+
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              onChange={handleChange}
+            />
+            {errors.email && <Alert severity="error">{errors.email}</Alert>}
+
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="phone"
+              label="Phone Number"
+              name="phone"
+              autoComplete="phone"
+              autoFocus
+              onChange={handleChange}
+            />
+            {errors.phone && <Alert severity="error">{errors.phone}</Alert>}
+
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              onChange={handleChange}
+            />
+            {errors.password && (
+              <Alert severity="error">{errors.password}</Alert>
+            )}
+
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="confirmPassword"
+              label="Confirm Password"
+              type="password"
+              name="confirmPassword"
+              autoComplete="confirmPassword"
+              autoFocus
+              onChange={handleChange}
+            />
+            {errors.confirmPassword && (
+              <Alert severity="error">{errors.confirmPassword}</Alert>
+            )}
+
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2, height: 48 }}
+            >
+              Register
+            </Button>
+            <Grid container>
+              <Grid item>
+                <Link href="/login" variant="body2">
+                  {"Already have an account? Log In"}
+                </Link>
+              </Grid>
             </Grid>
-          </Grid>
-        </Box>
+          </Box>
+        )}
       </Box>
+
       {/* Footer */}
       <Box
         sx={{
