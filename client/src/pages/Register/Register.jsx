@@ -14,7 +14,10 @@ import Container from "@mui/material/Container";
 import Alert from "@mui/material/Alert";
 import { User } from "../../utils/user";
 import { Card, CardContent, CardActions } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
 import { confirmEmail } from "../../API/email";
+import "./Register.css";
 
 import Footer from "../../components/layouts/Footer/Footer";
 
@@ -111,8 +114,38 @@ export default function Register() {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className="register">
       <CssBaseline />
+      <AppBar className="register-nav">
+        <Toolbar
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            paddingLeft: "36px",
+            paddingRight: "36px",
+          }}
+        >
+          <Typography
+            variant="h6"
+            style={{ fontWeight: "bold", fontSize: "24px" }}
+          >
+            DSC_UCU
+          </Typography>
+          <div>
+            <Link
+              href="/"
+              style={{
+                marginRight: "10px",
+                color: "#fff",
+                textDecoration: "none",
+                cursor: "pointer",
+              }}
+            >
+              Home
+            </Link>
+          </div>
+        </Toolbar>
+      </AppBar>
       <Box
         sx={{
           marginTop: 0,
@@ -122,7 +155,7 @@ export default function Register() {
           paddingTop: 8,
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+        <Avatar sx={{ m: 1, mt: 3, bgcolor: "secondary.main" }}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">

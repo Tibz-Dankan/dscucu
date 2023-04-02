@@ -11,9 +11,12 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
 import Alert from "@mui/material/Alert";
 import { Auth } from "../../utils/auth";
 import Footer from "../../components/layouts/Footer/Footer";
+import "./Login.css";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -69,8 +72,38 @@ export default function Login() {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className="login">
       <CssBaseline />
+      <AppBar className="login-nav">
+        <Toolbar
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            paddingLeft: "36px",
+            paddingRight: "36px",
+          }}
+        >
+          <Typography
+            variant="h6"
+            style={{ fontWeight: "bold", fontSize: "24px" }}
+          >
+            DSC_UCU
+          </Typography>
+          <div>
+            <Link
+              href="/"
+              style={{
+                marginRight: "10px",
+                color: "#fff",
+                textDecoration: "none",
+                cursor: "pointer",
+              }}
+            >
+              Home
+            </Link>
+          </div>
+        </Toolbar>
+      </AppBar>
       <Box
         height="100vh"
         sx={{
@@ -81,7 +114,7 @@ export default function Login() {
           paddingTop: 8,
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+        <Avatar sx={{ m: 1, mt: 3, bgcolor: "secondary.main" }}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">

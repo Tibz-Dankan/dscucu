@@ -43,7 +43,7 @@ const Profile = () => {
               variant="h6"
               style={{ fontWeight: "bold", fontSize: "24px" }}
             >
-              DSCUCU
+              DSC_UCU
             </Typography>
             <div>
               <Link
