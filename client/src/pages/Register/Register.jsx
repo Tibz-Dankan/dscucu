@@ -16,23 +16,7 @@ import { User } from "../../utils/user";
 import { Card, CardContent, CardActions } from "@mui/material";
 import { confirmEmail } from "../../API/email";
 
-const Copyright = (props) => {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://dsc-ucu.netlify.app/">
-        DSCUCU community
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-};
+import Footer from "../../components/layouts/Footer/Footer";
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -309,26 +293,7 @@ export default function Register() {
       </Box>
 
       {/* Footer */}
-      <Box
-        sx={{
-          // bgcolor: "background.paper",
-          p: 6,
-          bgcolor: "#f1f3f5",
-          borderTop: "1px solid #ddd",
-        }}
-        component="footer"
-      >
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Join us and be part of our community - where creativity meets
-          technology!
-        </Typography>
-        <Copyright />
-      </Box>
+      <Footer />
       {/* End footer */}
     </Container>
   );

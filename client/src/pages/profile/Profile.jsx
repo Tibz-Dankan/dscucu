@@ -7,15 +7,13 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
 import "./Profile.css";
-import heroBgImage from "../../assets/hero-bg-image.png";
 import Paper from "@mui/material/Paper";
 import { Grid, Card, CardMedia, CardContent } from "@mui/material";
 import { useProfile } from "../../context/ProfileContext";
+import Footer from "../../components/layouts/Footer/Footer";
 
 const styles = {
   paperContainer: {
-    // backgroundImage: `linear-gradient(to right, rgba(33, 37, 41, 0.7),rgba(33, 37, 41, 0.6), rgba(33, 37, 41, 0.4)),
-    // url(${heroBgImage})`,
     backgroundImage: `linear-gradient(to right, rgba(33, 37, 41, 0.08),rgba(33, 37, 41, 0.4), rgba(33, 37, 41, 0.08)) `,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -23,19 +21,6 @@ const styles = {
     width: "100%",
     marginBottom: "350px",
   },
-};
-
-const Copyright = () => {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://dsc-ucu.netlify.app/">
-        DSCUCU community
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
 };
 
 const Profile = () => {
@@ -138,26 +123,7 @@ const Profile = () => {
       </header>
 
       {/* Footer */}
-      <Box
-        sx={{
-          // bgcolor: "background.paper",
-          p: 6,
-          bgcolor: "#f1f3f5",
-          borderTop: "1px solid #ddd",
-        }}
-        component="footer"
-      >
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Join us and be part of our community - where creativity meets
-          technology!
-        </Typography>
-        <Copyright />
-      </Box>
+      <Footer />
       {/* End footer */}
     </Box>
   );

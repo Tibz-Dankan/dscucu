@@ -13,24 +13,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Alert from "@mui/material/Alert";
 import { Auth } from "../../utils/auth";
-
-const Copyright = (props) => {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://dsc-ucu.netlify.app/">
-        DSCUCU community
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-};
+import Footer from "../../components/layouts/Footer/Footer";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -151,27 +134,7 @@ export default function Login() {
         </Box>
       </Box>
       {/* footer */}
-      <Box
-        sx={{
-          // bgcolor: "background.paper",
-          p: 6,
-          bgcolor: "#f1f3f5",
-          borderTop: "1px solid #ddd",
-        }}
-        component="footer"
-      >
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Join us and be part of our community - where creativity meets
-          technology!
-        </Typography>
-        <Copyright />
-      </Box>
-      {/* End footer */}
+      <Footer />
     </Container>
   );
 }

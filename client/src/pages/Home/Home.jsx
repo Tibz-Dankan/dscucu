@@ -13,8 +13,9 @@ import ActivityCard from "../../components/UI/ActivityCard/ActivityCard";
 import activities from "../../data/activities.json";
 import team from "../../data/team.json";
 import MemberCard from "../../components/UI/MemberCard/MemberCard";
-import heroBgImage from "../../assets/hero-bg-image.png";
+// import heroBgImage from "../../assets/hero-bg-image.png";
 import Paper from "@mui/material/Paper";
+import Footer from "../../components/layouts/Footer/Footer";
 
 const heroImage =
   "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680454316/DSC_UCU/Activities/dsc-ucu-image_dajclg.png";
@@ -32,18 +33,18 @@ const styles = {
   },
 };
 
-const Copyright = () => {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://dsc-ucu.netlify.app/">
-        DSCUCU community
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-};
+// const Copyright = () => {
+//   return (
+//     <Typography variant="body2" color="text.secondary" align="center">
+//       {"Copyright © "}
+//       <Link color="inherit" href="https://dsc-ucu.netlify.app/">
+//         DSCUCU community
+//       </Link>{" "}
+//       {new Date().getFullYear()}
+//       {"."}
+//     </Typography>
+//   );
+// };
 
 export default function Home() {
   return (
@@ -218,26 +219,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <Box
-        sx={{
-          // bgcolor: "background.paper",
-          p: 6,
-          bgcolor: "#f1f3f5",
-          borderTop: "1px solid #ddd",
-        }}
-        component="footer"
-      >
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Join us and be part of our community - where creativity meets
-          technology!
-        </Typography>
-        <Copyright />
-      </Box>
+      <Footer />
       {/* End footer */}
     </Box>
   );
