@@ -22,7 +22,7 @@ router.post("/confirm-email", async (req, res) => {
         .json({ message: "Please provide email valid email" });
     }
     // sending email
-    await new Email(body.email).sendConfirmEmail(body.email);
+    await new Email(body.email).sendConfirmEmail(body.lastName);
 
     res.status(200).json({ message: "Email sent successfully" });
   } catch (err) {
