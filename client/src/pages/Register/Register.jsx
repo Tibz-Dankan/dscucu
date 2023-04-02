@@ -89,11 +89,12 @@ export default function Register() {
     });
   };
 
-  // const handleSendConfirmationEmail = async (recipient) => {
-  //   console.log("sending email");
-  //   await new Email(recipient).ConfirmRegistration(registeredUser.lastName);
-  //   console.log("finished sending email");
-  // };
+  const handleSendConfirmationEmail = async (recipient) => {
+    console.log("sending to :" + recipient);
+    console.log("sending email");
+    await new Email(recipient).ConfirmRegistration(formData.lastName);
+    console.log("finished sending email");
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -113,7 +114,7 @@ export default function Register() {
     setRegisteredUser(newUser);
     setIsRegistered(true);
     clearFormData();
-    // handleSendConfirmationEmail();
+    handleSendConfirmationEmail(formData.email);
   };
 
   const handleChange = (e) => {
