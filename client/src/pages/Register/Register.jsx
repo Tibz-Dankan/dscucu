@@ -14,7 +14,7 @@ import Container from "@mui/material/Container";
 import Alert from "@mui/material/Alert";
 import { User } from "../../utils/user";
 import { Card, CardContent, CardActions } from "@mui/material";
-import { Email } from "../../utils/email";
+import { confirmEmail } from "../../API/email";
 
 const Copyright = (props) => {
   return (
@@ -47,6 +47,7 @@ export default function Register() {
   const [errors, setErrors] = useState({});
   const [isRegistered, setIsRegistered] = useState(false);
   const [registeredUser, setRegisteredUser] = useState({});
+  const [emailConfirmation, setEmailConfirmation] = useState({});
 
   const validate = () => {
     let errors = {};
@@ -89,14 +90,7 @@ export default function Register() {
     });
   };
 
-  const handleSendConfirmationEmail = async (recipient) => {
-    console.log("sending to :" + recipient);
-    console.log("sending email");
-    await new Email(recipient).ConfirmRegistration(formData.lastName);
-    console.log("finished sending email");
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length) {
@@ -110,11 +104,21 @@ export default function Register() {
       setErrors({ email: err.email });
       return;
     }
-
     setRegisteredUser(newUser);
     setIsRegistered(true);
     clearFormData();
-    handleSendConfirmationEmail(formData.email);
+
+    const emailconfirm = await confirmEmail(newUser);
+    if (emailconfirm.error) {
+      console.log("emailconfirm.error");
+      console.log(emailconfirm.error);
+      setEmailConfirmation(emailconfirm.error);
+    }
+    if (emailconfirm.data) {
+      console.log("emailconfirm.data");
+      console.log(emailconfirm.data);
+      setEmailConfirmation(emailconfirm.data);
+    }
   };
 
   const handleChange = (e) => {
@@ -152,6 +156,12 @@ export default function Register() {
             }}
           >
             <CardContent sx={{ flexGrow: 1 }}>
+              {emailConfirmation.error && (
+                <Alert severity="error">{emailConfirmation.message}</Alert>
+              )}
+              {emailConfirmation.data && (
+                <Alert severity="success">{emailConfirmation.message}</Alert>
+              )}
               <Alert severity="success">You have registered successfully</Alert>
 
               <Typography gutterBottom variant="h5" component="h3">
