@@ -16,10 +16,15 @@ import MemberCard from "../../components/UI/MemberCard/MemberCard";
 import heroBgImage from "../../assets/hero-bg-image.png";
 import Paper from "@mui/material/Paper";
 
+const heroImage =
+  "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680454316/DSC_UCU/Activities/dsc-ucu-image_dajclg.png";
+
 const styles = {
   paperContainer: {
-    backgroundImage: `linear-gradient(to right, rgba(33, 37, 41, 0.7),rgba(33, 37, 41, 0.6), rgba(33, 37, 41, 0.4)), 
-    url(${heroBgImage})`,
+    // backgroundImage: `linear-gradient(to right, rgba(33, 37, 41, 0.7),rgba(33, 37, 41, 0.6), rgba(33, 37, 41, 0.4)),
+    // url(${heroBgImage})`,
+    backgroundImage: `linear-gradient(to right,  rgba(33, 37, 41, 0.2),rgba(33, 37, 41, 0.7), rgba(33, 37, 41, 0.2)), url(${heroImage})`,
+
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     height: "100vh",
@@ -103,7 +108,7 @@ export default function Home() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "start",
+                alignItems: "center",
               }}
             >
               <img
@@ -120,7 +125,7 @@ export default function Home() {
                 color="text.secondary"
                 paragraph
                 sx={{
-                  color: "#dee2e6",
+                  color: "#f1f3f5",
                   mt: 2,
                   fontSize: 20,
                   maxWidth: "400px",

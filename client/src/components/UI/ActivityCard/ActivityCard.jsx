@@ -1,4 +1,4 @@
-import { Grid, Card, CardMedia, CardContent, Typography } from "@mui/material";
+import { Grid, CardMedia, CardContent, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 
 import "./ActivityCard.css";
