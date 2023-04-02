@@ -4,6 +4,11 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListSubheader from "@mui/material/ListSubheader";
 import PeopleIcon from "@mui/icons-material/People";
 import HomeIcon from "@mui/icons-material/Home";
+import PersonIcon from "@mui/icons-material/Person";
+import EditIcon from "@mui/icons-material/Edit";
+import LockIcon from "@mui/icons-material/Lock";
+import DeleteIcon from "@mui/icons-material/Delete";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 import { Link } from "react-router-dom";
 import "./SidebarLinks.css";
 
@@ -19,34 +24,34 @@ export const mainListItems = (
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <PeopleIcon />
+        <PersonIcon />
       </ListItemIcon>
       <Link to="my-profile" className="sidebar-link">
-        My Profile
+        My profile
       </Link>
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <PeopleIcon />
+        <EditIcon />
       </ListItemIcon>
       <Link to="my-profile" className="sidebar-link">
-        My Profile
+        Update Profile
       </Link>
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <PeopleIcon />
+        <LockIcon />
       </ListItemIcon>
       <Link to="my-profile" className="sidebar-link">
-        My Profile
+        change password
       </Link>
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <PeopleIcon />
+        <DeleteIcon />
       </ListItemIcon>
       <Link to="my-profile" className="sidebar-link">
-        My Profile
+        Delete account
       </Link>
     </ListItemButton>
   </React.Fragment>
@@ -55,30 +60,38 @@ export const mainListItems = (
 export const secondaryListItems = (
   <React.Fragment>
     <ListSubheader component="div" inset>
-      Secondary
+      ADMIN
     </ListSubheader>
     <ListItemButton>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <Link to="my-profile" className="sidebar-link">
-        My Profile
+        Members
       </Link>
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <PeopleIcon />
+        <EditIcon />
       </ListItemIcon>
       <Link to="my-profile" className="sidebar-link">
-        My Profile
+        Update Member
       </Link>
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <PeopleIcon />
+        <NotificationsIcon />
       </ListItemIcon>
       <Link to="my-profile" className="sidebar-link">
-        My Profile
+        Notifications
+      </Link>
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <DeleteIcon />
+      </ListItemIcon>
+      <Link to="my-profile" className="sidebar-link">
+        Delete Member
       </Link>
     </ListItemButton>
   </React.Fragment>

@@ -7,6 +7,8 @@ import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LogoutIcon from "@mui/icons-material/Logout";
 import {
   useOpenSidebar,
   useToggleSidebar,
@@ -64,10 +66,16 @@ const Header = (props) => {
         >
           {props.title}
         </Typography>
-        <IconButton color="inherit">
+        {/* <IconButton color="inherit">
           <Badge badgeContent={4} color="secondary">
             <NotificationsIcon />
           </Badge>
+        </IconButton> */}
+        <IconButton color="inherit">
+          <AccountCircleIcon />
+        </IconButton>
+        <IconButton color="inherit">
+          <LogoutIcon />
         </IconButton>
       </Toolbar>
     </AppBar>

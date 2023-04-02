@@ -3,72 +3,72 @@
     "id": 1,
     "name": "Tech Talk",
     "description": "Monthly talk on trending technologies in the tech industry",
-    "image": "tech-talk.jpg"
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680451878/DSC_UCU/Activities/tech-talk-image_tbrdkk.png"
   },
   {
     "id": 2,
     "name": "Hackathon",
     "description": "A 24-hour coding competition to build solutions for real-world problems",
-    "image": "hackathon.jpg"
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680452900/DSC_UCU/Activities/hackthon-image_zziecn.png"
   },
   {
     "id": 3,
     "name": "Workshop",
     "description": "Hands-on training on a specific technology or tool",
-    "image": "workshop.jpg"
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680451944/DSC_UCU/Activities/workshop-image_el3xdp.png"
   },
   {
     "id": 4,
     "name": "Project Showcase",
     "description": "Opportunity to showcase personal or team projects built using Google's technologies",
-    "image": "project-showcase.jpg"
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680451682/DSC_UCU/Activities/project-show-case-image_pd03u4.png"
   },
   {
     "id": 5,
     "name": "Study Jam",
     "description": "Group study sessions to prepare for Google's certification exams",
-    "image": "study-jam.jpg"
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680451753/DSC_UCU/Activities/study-jam-image_znzcqm.png"
   },
   {
     "id": 6,
     "name": "Guest Speaker",
     "description": "Inviting experienced developers to speak on various topics in the tech industry",
-    "image": "guest-speaker.jpg"
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680451582/DSC_UCU/Activities/guest-speaker-image_qwtugw.png"
   },
   {
     "id": 7,
     "name": "Code Lab",
     "description": "Hands-on coding sessions to learn new technologies and tools",
-    "image": "code-lab.jpg"
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680451396/DSC_UCU/Activities/code-lab-image_rxg4cm.png"
   },
   {
     "id": 8,
     "name": "Career Fair",
     "description": "Bringing tech companies to campus to meet and recruit potential hires",
-    "image": "career-fair.jpg"
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680451348/DSC_UCU/Activities/career-fair-image_u6tyi2.png"
   },
   {
     "id": 9,
     "name": "Tech Outreach",
     "description": "Organizing workshops and coding sessions for high school students to inspire them to pursue careers in tech",
-    "image": "tech-outreach.jpg"
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680451804/DSC_UCU/Activities/tech-out-reach-image_sdovwp.png"
   },
   {
     "id": 10,
     "name": "Community Service",
     "description": "Using technology to address social issues in the community",
-    "image": "community-service.jpg"
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680451433/DSC_UCU/Activities/commity-service-image_hole2a.png"
   },
   {
     "id": 11,
     "name": "Google Cloud Bootcamp",
     "description": "Intensive training on Google Cloud technologies",
-    "image": "cloud-bootcamp.jpg"
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680451527/DSC_UCU/Activities/google-cloud-bootcamp-image_tda951.png"
   },
   {
     "id": 12,
     "name": "Design Sprint",
     "description": "A 5-day process for ideation, prototyping, and testing solutions to real-world problems",
-    "image": "design-sprint.jpg"
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680451477/DSC_UCU/Activities/design-sprint-image_pu3tif.png"
   }
 ]

@@ -58,7 +58,7 @@ export default function Home() {
               variant="h6"
               style={{ fontWeight: "bold", fontSize: "24px" }}
             >
-              DSCUCU
+              DSC_UCU
             </Typography>
             <div>
               <Link
@@ -157,10 +157,19 @@ export default function Home() {
         {/* Activities start  */}
 
         <Container sx={{ py: 8 }} maxWidth="md">
-          <Typography gutterBottom variant="h5" component="h2">
-            Club Activities
-          </Typography>
-
+          <Box
+            sx={{
+              height: "100%",
+              display: "flex",
+              justifyContent: "center",
+              bgcolor: "#f1f3f5",
+              marginBottom: 8,
+            }}
+          >
+            <Typography gutterBottom variant="h5" component="h2">
+              Club Activities
+            </Typography>
+          </Box>
           <Grid container spacing={4}>
             {activities.map((activity) => (
               <ActivityCard
@@ -175,9 +184,19 @@ export default function Home() {
 
         {/* Team members start */}
         <Container sx={{ py: 8 }} maxWidth="md">
-          <Typography gutterBottom variant="h5" component="h2">
-            Our Team
-          </Typography>
+          <Box
+            sx={{
+              height: "100%",
+              display: "flex",
+              justifyContent: "center",
+              bgcolor: "#f1f3f5",
+              marginBottom: 8,
+            }}
+          >
+            <Typography gutterBottom variant="h5" component="h2">
+              Our Team
+            </Typography>
+          </Box>
 
           <Grid container spacing={4}>
             {team.map((member) => (
