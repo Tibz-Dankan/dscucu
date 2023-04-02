@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+      body {
+        font-weight: 400;
+        line-height: 1.6;
+        font-family: "Inter", sans-serif;
+        font-size: 62.5%;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
+    <title>Confirm Email</title>
+  </head>
+  <body
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f1f3f5;
+      font-size: 16px;
+    "
+  >
+    <div
+      style="padding: 50px; padding-top: 100px; min-height: 300px; height: auto"
+    >
+      <div
+        style="
+          display: inline-block;
+          padding: 20px;
+          border-radius: 10px;
+          width: 100%;
+          background-color: #dee2e6;
+          box-shadow: 0.1rem 0.1rem 0.2rem hsla(0, 0%, 0%, 0.08);
+        "
+      >
+        <p>Subject: <%= subject %></p>
+        <br />
+        <p>Hi <%= lastName %></p>
+        <p>
+          Before you can access your account, we need to confirm that you have
+          registered with us.
+        </p>
+        <p>To confirm your registration, please click on button the below.</p>
+        <button
+          style="
+            border-radius: 2px;
+            padding: 4px 8px;
+            margin: 8px 0px;
+            background-color: #228be6;
+            border: 1px solid #228be6;
+            text-transform: uppercase;
+          "
+        >
+          <a
+            href="https://dsc-ucu.netlify.app/login"
+            target="_blank"
+            style="color: #f1f3f5; text-decoration: none; font-weight: bold"
+            >Confirm</a
+          >
+        </button>
+        <p>
+          You received this email because, you registered as a member for DSCUCU
+          community.
+        </p>
+        <p>Regards: DSCUCU community</p>
+      </div>
+    </div>
+  </body>
+</html>
