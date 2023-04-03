@@ -42,4 +42,11 @@ export class Auth {
   logout() {
     localStorage.removeItem("auth");
   }
+
+  user() {
+    const auth = localStorage.getItem("auth");
+    const ParsedAuth = JSON.parse(auth);
+    if (!ParsedAuth) return;
+    return ParsedAuth.user;
+  }
 }

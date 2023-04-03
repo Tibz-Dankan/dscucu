@@ -58,24 +58,3 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
-
-.pages {
-  position: relative;
-  box-shadow: var(--shadow-dark);
-  min-height: 100vh;
-  display: flex;
-  overflow: hidden;
-  flex: 1;
-  @media (max-width: 800px) {
-    flex-direction: column;
-  }
-}
-
-.component {
-  position: inherit;
-  /* display: flex;
-   flex: 1;
-   flex-direction: column;
-   background-color: var(--color-grey-light-2);
-   position: relative; */
-}

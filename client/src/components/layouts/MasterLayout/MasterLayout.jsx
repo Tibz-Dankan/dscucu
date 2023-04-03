@@ -29,6 +29,7 @@ const MasterLayout = (props) => {
           flexGrow: 1,
           height: "100vh",
           overflow: "auto",
+          pt: 12,
         }}
       >
         {props.children}

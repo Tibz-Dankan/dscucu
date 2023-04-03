@@ -29,6 +29,7 @@ export class User {
       return;
     }
     userObj.id = uuidv4();
+    userObj.createdAt = new Date(Date.now()).toISOString();
     this.users.push(userObj);
 
     this.saveToStorage(this.users);
