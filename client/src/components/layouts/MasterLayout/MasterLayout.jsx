@@ -9,30 +9,13 @@ import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
-
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import Footer from "../Footer/Footer";
 
 const MasterLayout = (props) => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <Header title="Master Layout" />
+      <Header title={props.title} />
       <Sidebar />
 
       {/* main Content start*/}
@@ -48,13 +31,9 @@ const MasterLayout = (props) => {
           overflow: "auto",
         }}
       >
+        {props.children}
         <Toolbar />
-        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-          <Grid container spacing={3}>
-            {props.children}
-          </Grid>
-          <Copyright sx={{ pt: 4 }} />
-        </Container>
+        <Footer />
       </Box>
       {/* main Content end*/}
     </Box>

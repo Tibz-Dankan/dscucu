@@ -5,29 +5,35 @@ import Register from "./pages/Register/Register";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/profile/Profile";
 import "./App.css";
-import MasterLayout from "./components/layouts/MasterLayout/MasterLayout";
+import MyProfile from "./components/UI/MyProfile/MyProfile";
+import { useLoggedIn, useUpdateLoggedIn } from "./context/AuthContext";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const isLoggedIn = useLoggedIn();
+  const updateLoggedIn = useUpdateLoggedIn(isLoggedIn);
 
   useEffect(() => {
     const tryLogin = () => {
-      const userData = localStorage.getItem("userData");
-      const parsedData = JSON.parse(userData);
-      if (!userData) {
+      const authData = localStorage.getItem("auth");
+      if (!authData) {
         console.log("no data found");
         return <Route path="/" element={<Navigate to="/login" replace />} />;
       }
+
+      const parsedData = JSON.parse(authData);
       const { user, token } = parsedData;
 
       if (!token || !user) {
+        localStorage.removeItem("auth");
         return <Route path="/" element={<Navigate to="/login" replace />} />;
-        //TODO: Delete auth data in local  storage
       }
-      setIsLoggedIn(true);
+      updateLoggedIn(true);
     };
     tryLogin();
-  }, []);
+  }, [isLoggedIn, updateLoggedIn]);
+
+  console.log("isLoggedIn");
+  console.log(isLoggedIn);
 
   return (
     <div className="app">
@@ -39,7 +45,6 @@ function App() {
               <Route path="register" element={<Register />} />
               <Route path="login" element={<Login />} />
               <Route path="profile" element={<Profile />} />
-              <Route path="mui-master-layout" element={<MasterLayout />} />
               <Route
                 path="signup"
                 element={<Navigate to="/register" replace />}
@@ -50,44 +55,19 @@ function App() {
           </Routes>
         )}
 
-        {/* {isLoggedIn && (
+        {isLoggedIn && (
           <Fragment>
-            <div className="pages">
-              <SideBar />
-              <Routes>
-                <Route
-                  path="chat"
-                  element={
-                    <div className="pages__component">
-                      <Header title={"Chat"} />
-                      <Chat socket={socket} />
-                    </div>
-                  }
-                />
-                <Route
-                  path="profile"
-                  element={
-                    <div className="pages__component">
-                      <Header title={"Profile"} />
-                      <Profile />
-                    </div>
-                  }
-                />
-                <Route
-                  path="settings"
-                  element={
-                    <div className="pages__component">
-                      <Header title={"Settings"} />
-                      <Settings />
-                    </div>
-                  }
-                />
-                <Route path="/" element={<Navigate to="/chat" replace />} />
-                <Route path="*" element={<Navigate to="/chat" replace />} />
-              </Routes>
-            </div>
+            <Routes>
+              <Fragment>
+                <Route path="/" element={<MyProfile />} />
+                <Route path="my-profile" element={<MyProfile />} />
+                {/* <Route path="login" element={<Login />} /> */}
+                {/* <Route path="profile" element={<Profile />} /> */}
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </Fragment>
+            </Routes>
           </Fragment>
-        )} */}
+        )}
       </BrowserRouter>
     </div>
   );

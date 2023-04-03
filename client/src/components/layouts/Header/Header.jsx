@@ -13,6 +13,8 @@ import {
   useOpenSidebar,
   useToggleSidebar,
 } from "../../../context/SidebarContext";
+import { useNavigate } from "react-router-dom";
+import { useLoggedIn, useUpdateLoggedIn } from "../../../context/AuthContext";
 
 const drawerWidth = 240;
 
@@ -37,6 +39,16 @@ const AppBar = styled(MuiAppBar, {
 const Header = (props) => {
   const open = useOpenSidebar();
   const toggleSidebar = useToggleSidebar();
+
+  const navigate = useNavigate();
+  const isLoggedIn = useLoggedIn();
+  const updateLoggedIn = useUpdateLoggedIn(isLoggedIn);
+
+  const logoutHandler = () => {
+    localStorage.removeItem("auth");
+    updateLoggedIn(false);
+    navigate("/login", { replace: true });
+  };
 
   return (
     <AppBar position="absolute" open={open}>
@@ -74,7 +86,7 @@ const Header = (props) => {
         <IconButton color="inherit">
           <AccountCircleIcon />
         </IconButton>
-        <IconButton color="inherit">
+        <IconButton color="inherit" onClick={logoutHandler}>
           <LogoutIcon />
         </IconButton>
       </Toolbar>

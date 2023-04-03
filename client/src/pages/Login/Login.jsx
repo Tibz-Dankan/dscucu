@@ -17,6 +17,8 @@ import Alert from "@mui/material/Alert";
 import { Auth } from "../../utils/auth";
 import Footer from "../../components/layouts/Footer/Footer";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
+import { useLoggedIn, useUpdateLoggedIn } from "../../context/AuthContext";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -25,6 +27,10 @@ export default function Login() {
   });
 
   const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate();
+  const isLoggedIn = useLoggedIn();
+  const updateLoggedIn = useUpdateLoggedIn(false);
 
   const validate = () => {
     let errs = {};
@@ -64,6 +70,8 @@ export default function Login() {
       return;
     }
     // TODO: redirect to members page
+    updateLoggedIn(true);
+    navigate("/", { replace: true });
   };
 
   const handleChange = (e) => {
