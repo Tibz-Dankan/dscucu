@@ -62,10 +62,34 @@ export class User {
     return this.users;
   }
 
+  update(userObj) {
+    let user = this.findById(userObj.id);
+    if (!userObj.id) {
+      this.errors.id = "Please provide user id";
+      return;
+    }
+    if (user.email !== userObj.email) {
+      user = this.findByEmail(userObj.email);
+      if (user) {
+        this.errors.email = "Can't update to already registered email";
+        return;
+      }
+    }
+    const updatedUsers = this.users.map((user) => {
+      // If user has matching ID, replace with new object
+      if (user.id === userObj.id) {
+        return Object.assign({}, user, userObj);
+      }
+      // If user does not have matching ID, return original object
+      return user;
+    });
+
+    this.saveToStorage(updatedUsers);
+    return userObj;
+  }
+
   delete(id) {
     const updatedUsers = this.users.filter((user) => user.id !== id);
     this.saveToStorage(updatedUsers);
   }
-
-  // TOD0: update user
 }

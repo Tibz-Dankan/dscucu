@@ -32,7 +32,15 @@ const MasterLayout = (props) => {
           pt: 12,
         }}
       >
-        {props.children}
+        <Box
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {props.children}
+        </Box>
         <Toolbar />
         <Footer />
       </Box>

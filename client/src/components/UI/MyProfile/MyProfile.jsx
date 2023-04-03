@@ -14,8 +14,8 @@ import { Auth } from "../../../utils/auth";
 import { User } from "../../../utils/user";
 
 const MyProfile = () => {
-  const user = new Auth().user();
-  const id = user.id;
+  const id = new Auth().user().id;
+  const user = new User().findById(id);
 
   return (
     <MasterLayout title="My Profile">
@@ -37,7 +37,7 @@ const MyProfile = () => {
             <CardActions>
               <Button size="small">
                 <Link
-                  to="edit-profile"
+                  to="update-profile"
                   style={{
                     backgroundColor: "#228be6",
                     color: "#fff",
