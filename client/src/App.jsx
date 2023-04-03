@@ -7,6 +7,7 @@ import Profile from "./pages/profile/Profile";
 import "./App.css";
 import MyProfile from "./components/UI/MyProfile/MyProfile";
 import UpdateProfile from "./components/UI/UpdateProfile/UpdateProfile";
+import ChangePassword from "./components/UI/ChangePassword/ChangePassword";
 import { useLoggedIn, useUpdateLoggedIn } from "./context/AuthContext";
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
                 <Route path="/" element={<MyProfile />} />
                 <Route path="my-profile" element={<MyProfile />} />
                 <Route path="update-profile" element={<UpdateProfile />} />
+                <Route path="change-password" element={<ChangePassword />} />
                 {/* <Route path="profile" element={<Profile />} /> */}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Fragment>

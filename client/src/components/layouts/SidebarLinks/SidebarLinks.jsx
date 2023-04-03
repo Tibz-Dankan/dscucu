@@ -41,7 +41,7 @@ export const mainListItems = (
       <ListItemIcon>
         <LockIcon />
       </ListItemIcon>
-      <Link to="my-profile" className="sidebar-link">
+      <Link to="change-password" className="sidebar-link">
         change password
       </Link>
     </ListItemButton>

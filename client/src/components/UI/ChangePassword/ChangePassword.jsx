@@ -7,10 +7,15 @@ import Typography from "@mui/material/Typography";
 import MasterLayout from "../../layouts/MasterLayout/MasterLayout";
 import { Auth } from "../../../utils/auth";
 import { User } from "../../../utils/user";
+import "./ChangePassword.css";
 
-const UpdateProfile = () => {
+const ChangePassword = () => {
   const id = new Auth().user().id;
   const user = new User().findById(id);
+
+  user.currentPassword;
+  user.newPassword = "";
+  user.confirmPassword = "";
 
   const [formData, setFormData] = useState(user);
 
@@ -19,21 +24,26 @@ const UpdateProfile = () => {
 
   const validate = () => {
     let errors = {};
-    if (!formData.firstName.trim()) {
-      errors.firstName = "first name is required";
+    if (!formData.currentPassword.trim()) {
+      errors.currentPassword = "Current password is a must";
     }
-    if (!formData.lastName.trim()) {
-      errors.lastName = "last name is required";
+    if (!formData.newPassword.trim()) {
+      errors.newPassword = "New password is a must";
     }
-    if (!formData.email.trim()) {
-      errors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = "Invalid email address";
+    if (formData.newPassword.length <= 5) {
+      errors.newPassword = "Password must be greater than 5 characters";
     }
-    if (!formData.phone.trim()) {
-      errors.phone = "Phone number is required";
-    } else if (!/^[0-9]+$/.test(formData.phone)) {
-      errors.phone = "Invalid phone number";
+    if (!formData.confirmPassword.trim()) {
+      errors.confirmPassword = "Confirm password is a must";
+    }
+    if (formData.confirmPassword !== formData.newPassword) {
+      errors.confirmPassword = "Passwords don't much";
+    }
+    if (formData.currentPassword !== formData.password) {
+      errors.currentPassword = "Incorrect current password";
+    }
+    if (formData.newPassword === formData.password) {
+      errors.currentPassword = "New password is the same as current password";
     }
     return errors;
   };
@@ -50,12 +60,10 @@ const UpdateProfile = () => {
     const updatedUsers = user.update(formData);
     const err = user.errors;
 
-    if (err.id) {
+    if (err?.id) {
       setErrors({ id: err.id });
     }
-    if (err.email) {
-      setErrors({ email: err.email });
-    }
+
     setIsSuccessful(true);
   };
 
@@ -65,7 +73,7 @@ const UpdateProfile = () => {
   };
 
   return (
-    <MasterLayout title="Update Profile">
+    <MasterLayout title="Change Password">
       <Box
         style={{
           display: "flex",
@@ -77,11 +85,11 @@ const UpdateProfile = () => {
         }}
       >
         <Typography component="h1" variant="h6">
-          Update Profile
+          Change password
         </Typography>
         {isSuccessful && (
           <Alert severity="success" sx={{ mt: 1 }}>
-            Profile Updated successfully
+            Password changed successfully
           </Alert>
         )}
         {errors.id && (
@@ -100,59 +108,46 @@ const UpdateProfile = () => {
             margin="normal"
             required
             fullWidth
-            id="firstName"
-            label="FirstName"
-            name="firstName"
-            autoComplete="firstName"
-            autoFocus
+            name="currentPassword"
+            label="Current Password"
+            type="password"
+            id="currentPassword"
+            autoComplete="current-password"
             onChange={handleChange}
-            value={formData.firstName}
           />
-          {errors.firstName && (
-            <Alert severity="error">{errors.firstName}</Alert>
+          {errors.currentPassword && (
+            <Alert severity="error">{errors.currentPassword}</Alert>
           )}
-
           <TextField
             margin="normal"
             required
             fullWidth
-            id="lastName"
-            label="Last Name"
-            name="lastName"
-            autoComplete="lastName"
+            id="newPassword"
+            label="New Password"
+            type="password"
+            name="newPassword"
+            autoComplete="newPassword"
             autoFocus
             onChange={handleChange}
-            value={formData.lastName}
           />
-          {errors.lastName && <Alert severity="error">{errors.lastName}</Alert>}
-
+          {errors.newPassword && (
+            <Alert severity="error">{errors.newPassword}</Alert>
+          )}
           <TextField
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            id="newPassword"
+            label="Confirm Password"
+            type="password"
+            name="confirmPassword"
+            autoComplete="confirmPassword"
             autoFocus
             onChange={handleChange}
-            value={formData.email}
           />
-          {errors.email && <Alert severity="error">{errors.email}</Alert>}
-
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="phone"
-            label="Phone Number"
-            name="phone"
-            autoComplete="phone"
-            autoFocus
-            onChange={handleChange}
-            value={formData.phone}
-          />
-          {errors.phone && <Alert severity="error">{errors.phone}</Alert>}
+          {errors.confirmPassword && (
+            <Alert severity="error">{errors.confirmPassword}</Alert>
+          )}
           <Button
             type="submit"
             fullWidth
@@ -167,4 +162,4 @@ const UpdateProfile = () => {
   );
 };
 
-export default UpdateProfile;
+export default ChangePassword;

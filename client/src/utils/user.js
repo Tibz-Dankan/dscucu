@@ -30,6 +30,7 @@ export class User {
     }
     userObj.id = uuidv4();
     userObj.createdAt = new Date(Date.now()).toISOString();
+    userObj.role = "user";
     this.users.push(userObj);
 
     this.saveToStorage(this.users);
@@ -91,5 +92,28 @@ export class User {
   delete(id) {
     const updatedUsers = this.users.filter((user) => user.id !== id);
     this.saveToStorage(updatedUsers);
+  }
+
+  updatePassword(userObj) {
+    userObj.password = userObj.newPassword;
+
+    delete userObj["confirmPassword"];
+    delete userObj["newPassword"];
+
+    if (!userObj.id) {
+      this.errors.id = "Please provide user id";
+      return;
+    }
+    const updatedUsers = this.users.map((user) => {
+      // If user has matching ID, replace with new object
+      if (user.id === userObj.id) {
+        return Object.assign({}, user, userObj);
+      }
+      // If user does not have matching ID, return original object
+      return user;
+    });
+
+    this.saveToStorage(updatedUsers);
+    return userObj;
   }
 }
