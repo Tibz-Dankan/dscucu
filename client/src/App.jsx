@@ -10,10 +10,16 @@ import UpdateProfile from "./components/UI/UpdateProfile/UpdateProfile";
 import ChangePassword from "./components/UI/ChangePassword/ChangePassword";
 import RegisterAdmin from "./pages/RegisterAdmin/RegisterAdmin";
 import { useLoggedIn, useUpdateLoggedIn } from "./context/AuthContext";
+import RegisteredMembers from "./pages/RegisteredMembers/RegisteredMembers";
 
 function App() {
   const isLoggedIn = useLoggedIn();
   const updateLoggedIn = useUpdateLoggedIn(isLoggedIn);
+  const [user, setUser] = useState({});
+
+  const updateUserHandler = (state) => {
+    setUser(state);
+  };
 
   useEffect(() => {
     const tryLogin = () => {
@@ -31,6 +37,8 @@ function App() {
         return <Route path="/" element={<Navigate to="/login" replace />} />;
       }
       updateLoggedIn(true);
+      // setUser(user);
+      updateUserHandler(user);
     };
     tryLogin();
   }, [isLoggedIn, updateLoggedIn]);
@@ -67,7 +75,9 @@ function App() {
                 <Route path="my-profile" element={<MyProfile />} />
                 <Route path="update-profile" element={<UpdateProfile />} />
                 <Route path="change-password" element={<ChangePassword />} />
-                {/* <Route path="profile" element={<Profile />} /> */}
+                {user?.role && (
+                  <Route path="members" element={<RegisteredMembers />} />
+                )}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Fragment>
             </Routes>

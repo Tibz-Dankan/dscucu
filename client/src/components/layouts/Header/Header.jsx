@@ -52,11 +52,7 @@ const Header = (props) => {
 
   return (
     <AppBar position="absolute" open={open}>
-      <Toolbar
-        sx={{
-          pr: "24px", // keep right padding when drawer closed
-        }}
-      >
+      <Toolbar sx={{ pr: "24px" }}>
         <IconButton
           edge="start"
           color="inherit"
@@ -78,13 +74,14 @@ const Header = (props) => {
         >
           {props.title}
         </Typography>
-        {/* <IconButton color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton> */}
         <IconButton color="inherit">
-          <AccountCircleIcon />
+          <AccountCircleIcon
+            style={{
+              width: "50px",
+              height: "50px",
+              color: "#e9ecef",
+            }}
+          />
         </IconButton>
         <IconButton color="inherit" onClick={logoutHandler}>
           <LogoutIcon />

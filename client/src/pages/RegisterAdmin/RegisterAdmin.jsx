@@ -18,6 +18,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { confirmEmail } from "../../API/email";
 import "./RegisterAdmin.css";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 import Footer from "../../components/layouts/Footer/Footer";
 
@@ -37,32 +38,18 @@ export default function RegisterAdmin() {
   const [registeredUser, setRegisteredUser] = useState({});
   const [emailConfirmation, setEmailConfirmation] = useState({});
 
-  // token start
   const tokens = [
-    123456, 789012, 345678, 901234, 567890, 234567, 890123, 456789,
+    128456, 789012, 345678, 901234, 567890, 234567, 890123, 456789,
   ];
 
-  function checkTokenExists(tokenArr, token) {
+  const checkTokenExists = (tokenArr, token) => {
     for (let i = 0; i < tokenArr.length; i++) {
-      console.log("i");
-      console.log(i);
       if (tokenArr[i] == token) {
         return true;
       }
     }
     return false;
-  }
-
-  // usage
-  const tokenToCheck = 123456;
-  const tokenExists = checkTokenExists(tokens, tokenToCheck);
-
-  if (tokenExists) {
-    console.log("Token exists in array");
-  } else {
-    console.log("Token does not exist in array");
-  }
-  // token end
+  };
 
   const validate = () => {
     let errors = {};
@@ -190,7 +177,7 @@ export default function RegisterAdmin() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Register
+          Register as the Admin
         </Typography>
         {isRegistered && (
           <Card

@@ -57,17 +57,17 @@ export const secondaryListItems = (
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <Link to="my-profile" className="sidebar-link">
+      <Link to="members" className="sidebar-link">
         Members
       </Link>
     </ListItemButton>
-    <ListItemButton>
+    {/* <ListItemButton>
       <ListItemIcon>
         <DeleteIcon />
       </ListItemIcon>
       <Link to="my-profile" className="sidebar-link">
         Delete Member
       </Link>
-    </ListItemButton>
+    </ListItemButton> */}
   </React.Fragment>
 );

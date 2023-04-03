@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
@@ -6,10 +6,6 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import MuiDrawer from "@mui/material/Drawer";
-// import {
-//   mainListItems,
-//   secondaryListItems,
-// } from "../../MUI/Dashboard/ListItems";
 
 import {
   mainListItems,
@@ -52,6 +48,22 @@ const Drawer = styled(MuiDrawer, {
 const Sidebar = () => {
   const open = useOpenSidebar();
   const toggleSidebar = useToggleSidebar();
+  const [user, setUser] = useState({});
+
+  const updateUserHandler = (state) => {
+    setUser(state);
+  };
+  // check authentication
+  useEffect(() => {
+    const checkAuth = () => {
+      const authData = localStorage.getItem("auth");
+      if (!authData) return;
+      const parsedData = JSON.parse(authData);
+      const { user } = parsedData;
+      updateUserHandler(user);
+    };
+    checkAuth();
+  }, []);
 
   return (
     <Drawer variant="permanent" open={open}>
@@ -68,11 +80,11 @@ const Sidebar = () => {
         </IconButton>
       </Toolbar>
       <Divider />
-      {/* list all the links here */}
       <List component="nav">
         {mainListItems}
         <Divider sx={{ my: 1 }} />
-        {secondaryListItems}
+        {/* Admin links */}
+        {user?.role === "admin" && secondaryListItems}
       </List>
     </Drawer>
   );
