@@ -59,67 +59,70 @@ const Profile = () => {
             </div>
           </Toolbar>
         </AppBar>
-        <Paper style={styles.paperContainer}>
-          <Box
-            sx={{
-              pt: 8,
-              pb: 6,
-              height: "60vh",
+        {/* <Paper style={styles.paperContainer}> */}
+        <Box
+          sx={{
+            pt: 8,
+            pb: 6,
+            height: "60vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: "350px",
+          }}
+        >
+          {/* Profile data here */}
+          <Container
+            maxWidth="sm"
+            style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            {/* Profile data here */}
-            <Container
-              maxWidth="sm"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Grid item key={profile?.id} xs={12} sm={6} md={4}>
-                <Card
+            <Grid item key={profile?.id} xs={12} sm={6} md={4}>
+              <Box
+                sx={{
+                  mt: 40,
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  bgcolor: "#f1f3f5",
+                  width: "300px",
+                  padding: "0px 10px",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image={profile?.image}
+                  alt={profile.name}
                   sx={{
-                    mt: 40,
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    bgcolor: "#f1f3f5",
-                    width: "300px",
-                    padding: "0px 10px",
+                    height: "200px",
+                    width: "200px",
+                    borderRadius: "50%",
+                    margin: "10px",
+                    alignSelf: "center",
                   }}
-                >
-                  <CardMedia
-                    component="img"
-                    image={profile?.image}
-                    alt={profile.name}
-                    sx={{
-                      borderRadius: "50%",
-                      margin: "10px",
-                      alignSelf: "center",
-                    }}
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {profile?.name}
-                    </Typography>
-                    <Typography>{profile?.role}</Typography>
-                    <Typography
-                      variant="h6"
-                      style={{ fontWeight: "bold", marginTop: "20px" }}
-                    >
-                      About me
-                    </Typography>
-                    {/* improve the styling here */}
-                    <Typography>{profile?.description}</Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            </Container>
-          </Box>
-        </Paper>
+                />
+                <CardContent sx={{ flexGrow: 1, textAlign: "center" }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {profile?.name}
+                  </Typography>
+                  <Typography>{profile?.role}</Typography>
+                  <Typography
+                    variant="h6"
+                    style={{ fontWeight: "bold", marginTop: "20px" }}
+                  >
+                    About me
+                  </Typography>
+                  {/* improve the styling here */}
+                  <Typography>{profile?.description}</Typography>
+                </CardContent>
+              </Box>
+            </Grid>
+          </Container>
+        </Box>
+        {/* </Paper> */}
       </header>
 
       {/* Footer */}
