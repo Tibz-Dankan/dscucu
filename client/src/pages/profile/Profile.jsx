@@ -59,7 +59,6 @@ const Profile = () => {
             </div>
           </Toolbar>
         </AppBar>
-        {/* <Paper style={styles.paperContainer}> */}
         <Box
           sx={{
             pt: 8,
@@ -122,7 +121,6 @@ const Profile = () => {
             </Grid>
           </Container>
         </Box>
-        {/* </Paper> */}
       </header>
 
       {/* Footer */}

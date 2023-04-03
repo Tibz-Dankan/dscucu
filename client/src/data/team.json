@@ -1,44 +1,72 @@
 [
   {
     "id": 1,
-    "name": "Avery Thomas",
-    "image": "https://randomuser.me/api/portraits/women/1.jpg",
-    "role": "Project Manager",
-    "description": "Avery is responsible for overseeing the frontend development process and ensuring that the project stays on track."
+    "name": "Moga",
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680483039/DSC_UCU/Activities/moga-image_czoysc.jpg",
+    "role": "Project Lead",
+    "description": "Moga is the frontend Project Lead responsible for managing the team, setting project goals, and ensuring code quality and adherence to best practices."
   },
   {
     "id": 2,
     "name": "Landon Martinez",
-    "image": "https://randomuser.me/api/portraits/men/2.jpg",
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680483292/DSC_UCU/Activities/member-three-image_zzug3y.jpg",
     "role": "UI/UX Designer",
     "description": "Landon is responsible for designing the user interface and experience for the application, ensuring that it is intuitive and easy to use."
   },
   {
     "id": 3,
     "name": "Isabella Lee",
-    "image": "https://randomuser.me/api/portraits/women/3.jpg",
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680483242/DSC_UCU/Activities/member-two-image_rbagcq.jpg",
     "role": "Frontend Developer",
     "description": "Isabella is responsible for writing the code that powers the frontend of the application, bringing the design to life."
   },
   {
     "id": 4,
     "name": "Lucas Rodriguez",
-    "image": "https://randomuser.me/api/portraits/men/4.jpg",
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680484188/DSC_UCU/Activities/member-eight-image_yf1983.png",
     "role": "Quality Assurance Tester",
     "description": "Lucas is responsible for testing the frontend of the application, ensuring that it is bug-free and functioning correctly."
   },
   {
     "id": 5,
     "name": "Sophia Patel",
-    "image": "https://randomuser.me/api/portraits/women/5.jpg",
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680483091/DSC_UCU/Activities/member-five-image_g9gdpc.jpg",
     "role": "Accessibility Specialist",
     "description": "Sophia is responsible for ensuring that the frontend of the application is accessible to users with disabilities, following best practices and guidelines."
   },
   {
     "id": 6,
-    "name": "Ethan Kim",
-    "image": "https://randomuser.me/api/portraits/men/6.jpg",
+    "name": "Shan Mary",
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680484476/DSC_UCU/Activities/member-six-image_iobelw.png",
     "role": "Frontend Engineer",
-    "description": "Ethan is responsible for developing and maintaining the frontend codebase of the application, implementing new features and optimizing performance."
+    "description": "Shan is responsible for developing and maintaining the frontend codebase of the application, implementing new features and optimizing performance."
+  },
+  {
+    "id": 7,
+    "name": "Olivia Evans",
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680483167/DSC_UCU/Activities/member-four-image_pqfv4p.jpg",
+    "role": "Backend Developer",
+    "description": "Olivia is responsible for developing and maintaining the backend codebase of the application, managing the database, and ensuring that data is properly handled and secured."
+  },
+  {
+    "id": 8,
+    "name": "Gavin Lee",
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680484236/DSC_UCU/Activities/member-nine-image_dsig8r.png",
+    "role": "DevOps Engineer",
+    "description": "Gavin is responsible for ensuring that the deployment process runs smoothly, managing server infrastructure, and implementing automated testing and deployment processes to improve development efficiency and reliability."
+  },
+  {
+    "id": 9,
+    "name": "Zoe Nguyen",
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680484309/DSC_UCU/Activities/member-seven-image_rxpqmg.png",
+    "role": "Product Manager",
+    "description": "Zoe is responsible for driving the product vision and roadmap, conducting user research and analysis, and ensuring that the product meets the needs of users"
+  },
+  {
+    "id": 10,
+    "name": "Sawn Suzie",
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680484650/DSC_UCU/Activities/member-ten-image_lglj3d.png",
+    "role": "Data Scientist",
+    "description": "Suzie is responsible for analyzing user data and feedback to make data-driven decisions for the application."
   }
 ]
