@@ -37,6 +37,21 @@ export class User {
     return userObj;
   }
 
+  createAdmin(userObj) {
+    const user = this.findByEmail(userObj.email);
+    if (user) {
+      this.errors.email = "email already registered";
+      return;
+    }
+    userObj.id = uuidv4();
+    userObj.createdAt = new Date(Date.now()).toISOString();
+    userObj.role = "admin";
+    this.users.push(userObj);
+
+    this.saveToStorage(this.users);
+    return userObj;
+  }
+
   findById(id) {
     let user;
 
