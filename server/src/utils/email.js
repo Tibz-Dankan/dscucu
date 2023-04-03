@@ -1,6 +1,9 @@
 const path = require("path");
 const ejs = require("ejs");
 const sendgrid = require("@sendgrid/mail");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 class Email {
   recipients;
@@ -12,7 +15,7 @@ class Email {
   async sendMail(html, subject) {
     const mailOptions = {
       to: this.recipients,
-      from: { email: "moga.m.abdulwahab@gmail.com", name: "DSCUCU community" },
+      from: { email: process.env.SENDER_EMAIL, name: "DSCUCU community" },
       subject: subject,
       html: html,
     };
