@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
@@ -16,14 +16,13 @@ import MemberCard from "../../components/UI/MemberCard/MemberCard";
 // import heroBgImage from "../../assets/hero-bg-image.png";
 import Paper from "@mui/material/Paper";
 import Footer from "../../components/layouts/Footer/Footer";
+import { wakeUpServer } from "../../API/email";
 
 const heroImage =
   "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680454316/DSC_UCU/Activities/dsc-ucu-image_dajclg.png";
 
 const styles = {
   paperContainer: {
-    // backgroundImage: `linear-gradient(to right, rgba(33, 37, 41, 0.7),rgba(33, 37, 41, 0.6), rgba(33, 37, 41, 0.4)),
-    // url(${heroBgImage})`,
     backgroundImage: `linear-gradient(to right,  rgba(33, 37, 41, 0.2),rgba(33, 37, 41, 0.7), rgba(33, 37, 41, 0.2)), url(${heroImage})`,
 
     backgroundSize: "cover",
@@ -33,20 +32,14 @@ const styles = {
   },
 };
 
-// const Copyright = () => {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center">
-//       {"Copyright © "}
-//       <Link color="inherit" href="https://dsc-ucu.netlify.app/">
-//         DSCUCU community
-//       </Link>{" "}
-//       {new Date().getFullYear()}
-//       {"."}
-//     </Typography>
-//   );
-// };
-
 export default function Home() {
+  useEffect(() => {
+    const wakeUpServerHandler = async () => {
+      await wakeUpServer();
+    };
+    wakeUpServerHandler();
+  }, []);
+
   return (
     <Box>
       <header className="home-header">

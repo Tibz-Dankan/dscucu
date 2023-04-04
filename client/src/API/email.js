@@ -30,3 +30,29 @@ export const confirmEmail = async (userObj) => {
     console.log(err.message);
   }
 };
+
+export const wakeUpServer = async () => {
+  try {
+    const response = await fetch(`${url}/api/wake-up-server`, {
+      method: "POST",
+      body: JSON.stringify({ message: "server up wake" }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      error.error = error.message;
+      return { error: error };
+    }
+    const data = await response.json();
+    data.data = data.message;
+
+    return { data: data };
+  } catch (err) {
+    console.log("err while waking up server");
+
+    console.log(err.message);
+  }
+};
