@@ -29,7 +29,7 @@ router.post("/confirm-email", async (req, res) => {
     console.log("error", err.message);
     if (err) {
       return res
-        .status(400)
+        .status(500)
         .json({ message: "Sorry something went wrong while sending email" });
     }
   }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,12 +9,16 @@ import MenuIcon from "@mui/icons-material/Menu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
+import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import {
   useOpenSidebar,
   useToggleSidebar,
 } from "../../../context/SidebarContext";
 import { useNavigate } from "react-router-dom";
 import { useLoggedIn, useUpdateLoggedIn } from "../../../context/AuthContext";
+import { User } from "../../../utils/user";
+import { Link } from "react-router-dom";
+import "./Header.css";
 
 const drawerWidth = 240;
 
@@ -50,8 +54,29 @@ const Header = (props) => {
     navigate("/login", { replace: true });
   };
 
+  const auth = localStorage.getItem("auth");
+  const ParsedAuth = JSON.parse(auth);
+  console.log("ParsedAuth");
+  console.log(ParsedAuth);
+  const user = new User().findById(ParsedAuth.user.id);
+
+  const [isMediumScreen, setIsMediumScreen] = useState(false);
+
+  const windowWidth = window.innerWidth;
+  useEffect(() => {
+    console.log("windowWidth");
+    console.log(windowWidth);
+    if (windowWidth > 650) {
+      setIsMediumScreen(true);
+    }
+  }, [windowWidth]);
+
   return (
-    <AppBar position="absolute" open={open}>
+    <AppBar
+      position="absolute"
+      open={open}
+      style={{ backgroundColor: "#f1f3f5", color: "#212529" }}
+    >
       <Toolbar sx={{ pr: "24px" }}>
         <IconButton
           edge="start"
@@ -65,26 +90,26 @@ const Header = (props) => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography
-          component="h1"
-          variant="h6"
-          color="inherit"
-          noWrap
-          sx={{ flexGrow: 1 }}
-        >
+        <Typography color="inherit" noWrap sx={{ flexGrow: 1 }}>
           {props.title}
         </Typography>
         <IconButton color="inherit">
           <AccountCircleIcon
             style={{
-              width: "50px",
-              height: "50px",
-              color: "#e9ecef",
+              width: "40px",
+              height: "40px",
+              color: "#868e96",
             }}
           />
+          {/* To change the to power icon */}
+          {isMediumScreen && (
+            <Typography style={{ marginLeft: "4px" }}>
+              {user?.firstName} {user?.lastName}
+            </Typography>
+          )}
         </IconButton>
         <IconButton color="inherit" onClick={logoutHandler}>
-          <LogoutIcon />
+          <PowerSettingsNewIcon style={{ color: "#212529" }} />
         </IconButton>
       </Toolbar>
     </AppBar>

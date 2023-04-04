@@ -76,6 +76,7 @@ const AdminUpdateMember = () => {
                       flexDirection: "column",
                       alignItems: "center",
                       // bgcolor: "#f1f3f5",
+                      minWidth: "180px",
                     }}
                   >
                     <IconButton color="inherit">

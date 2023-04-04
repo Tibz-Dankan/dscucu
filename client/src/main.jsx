@@ -7,7 +7,7 @@ import { ContextProvider } from "./context/ContextProvider";
 
 const theme = createTheme({
   typography: {
-    fontSize: 24,
+    fontSize: 20,
   },
   palette: {
     background: {

@@ -70,7 +70,7 @@ const UpdateMemberForm = () => {
   };
 
   return (
-    <MasterLayout title="Update profile">
+    <MasterLayout title="Update member">
       <Box
         style={{
           display: "flex",
@@ -82,7 +82,7 @@ const UpdateMemberForm = () => {
         }}
       >
         <Typography component="h1" variant="h6">
-          Update Profile
+          Update member
         </Typography>
         {isSuccessful && (
           <Alert severity="success" sx={{ mt: 1 }}>

@@ -71,6 +71,7 @@ const AdminDeleteMember = () => {
                   <Box
                     sx={{
                       height: "100%",
+                      minWidth: "180px",
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",

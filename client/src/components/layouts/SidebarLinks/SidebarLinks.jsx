@@ -7,6 +7,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
 import EditIcon from "@mui/icons-material/Edit";
 import LockIcon from "@mui/icons-material/Lock";
+import { Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
 import "./SidebarLinks.css";
@@ -15,7 +16,7 @@ export const mainListItems = (
   <React.Fragment>
     <ListItemButton>
       <ListItemIcon>
-        <HomeIcon />
+        <HomeIcon className="sidebar-icon" />
       </ListItemIcon>
       <Link to="/" className="sidebar-link">
         Home
@@ -23,7 +24,7 @@ export const mainListItems = (
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <PersonIcon />
+        <PersonIcon className="sidebar-icon" />
       </ListItemIcon>
       <Link to="my-profile" className="sidebar-link">
         My profile
@@ -31,7 +32,7 @@ export const mainListItems = (
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <EditIcon />
+        <EditIcon className="sidebar-icon" />
       </ListItemIcon>
       <Link to="update-profile" className="sidebar-link">
         Update Profile
@@ -39,7 +40,7 @@ export const mainListItems = (
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <LockIcon />
+        <LockIcon className="sidebar-icon" />
       </ListItemIcon>
       <Link to="change-password" className="sidebar-link">
         change password
@@ -50,12 +51,16 @@ export const mainListItems = (
 
 export const secondaryListItems = (
   <React.Fragment>
-    <ListSubheader component="div" inset>
+    <ListSubheader
+      component="div"
+      inset
+      style={{ backgroundColor: "inherit", color: "#ced4da" }}
+    >
       ADMIN
     </ListSubheader>
     <ListItemButton>
       <ListItemIcon>
-        <PeopleIcon />
+        <PeopleIcon className="sidebar-icon" />
       </ListItemIcon>
       <Link to="members" className="sidebar-link">
         Members
@@ -63,7 +68,7 @@ export const secondaryListItems = (
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <EditIcon />
+        <EditIcon className="sidebar-icon" />
       </ListItemIcon>
       <Link to="update-member" className="sidebar-link">
         Update Member
@@ -71,7 +76,7 @@ export const secondaryListItems = (
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <DeleteIcon />
+        <DeleteIcon className="sidebar-icon" />
       </ListItemIcon>
       <Link to="delete-member" className="sidebar-link">
         Delete Member

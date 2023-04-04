@@ -7,6 +7,7 @@ import {
   Typography,
   CardActions,
   Button,
+  Card,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -71,13 +72,14 @@ const RegisteredMembers = () => {
               <Box
                 sx={{
                   height: "100%",
+                  minWidth: "180px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  bgcolor: "#f1f3f5",
+                  // bgcolor: "#f1f3f5",
                 }}
               >
-                <IconButton color="inherit">
+                <IconButton>
                   <AccountCircleIcon
                     style={{
                       width: "60px",
