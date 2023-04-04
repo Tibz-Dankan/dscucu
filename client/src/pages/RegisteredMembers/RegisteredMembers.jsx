@@ -20,11 +20,26 @@ const RegisteredMembers = () => {
   console.log("users");
   console.log(users);
 
+  // TODO: include default value on the day and time
+
   const day = (dateParam) => {
+    // if (dateParam) {
+    //   //  const defaultDate = "" //date in the isoString
+    //   return date.toDateString();
+    // }
     const date = new Date(dateParam);
     return date.toDateString(); // provides format  -> Sun Jul 03 2022;
   };
+
   const time = (dateParam) => {
+    // if (dateParam) {
+    //   //  const defaultDate = "" //date in the isoString
+    //   return date.toLocaleTimeString("en-Us", {
+    //     hour: "numeric",
+    //     minute: "numeric",
+    //     hour12: true,
+    //   });
+    // }
     const date = new Date(dateParam);
     //provides format  -> 3:47 AM
     return date.toLocaleTimeString("en-Us", {

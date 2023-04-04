@@ -4,12 +4,17 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
 import Typography from "@mui/material/Typography";
-import MasterLayout from "../../layouts/MasterLayout/MasterLayout";
-import { Auth } from "../../../utils/auth";
 import { User } from "../../../utils/user";
+import "./UpdateMemberForm.css";
+import { useProfile } from "../../../context/ProfileContext";
+import MasterLayout from "../../layouts/MasterLayout/MasterLayout";
 
-const UpdateProfile = () => {
-  const id = new Auth().user().id;
+const UpdateMemberForm = (props) => {
+  const member = useProfile();
+
+  const id = member.id;
+  console.log("id in the member update form");
+  console.log(id);
   const user = new User().findById(id);
 
   const [formData, setFormData] = useState(user);
@@ -67,7 +72,7 @@ const UpdateProfile = () => {
   };
 
   return (
-    <MasterLayout title="Update Profile">
+    <MasterLayout title="Update profile">
       <Box
         style={{
           display: "flex",
@@ -169,4 +174,4 @@ const UpdateProfile = () => {
   );
 };
 
-export default UpdateProfile;
+export default UpdateMemberForm;

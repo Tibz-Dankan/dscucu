@@ -11,6 +11,8 @@ import ChangePassword from "./components/UI/ChangePassword/ChangePassword";
 import RegisterAdmin from "./pages/RegisterAdmin/RegisterAdmin";
 import { useLoggedIn, useUpdateLoggedIn } from "./context/AuthContext";
 import RegisteredMembers from "./pages/RegisteredMembers/RegisteredMembers";
+import AdminUpdateMember from "./pages/AdminUpdateMember/AdminUpdateMember";
+import UpdateMemberForm from "./components/UI/UpdateMemberForm/UpdateMemberForm";
 
 function App() {
   const isLoggedIn = useLoggedIn();
@@ -75,8 +77,19 @@ function App() {
                 <Route path="my-profile" element={<MyProfile />} />
                 <Route path="update-profile" element={<UpdateProfile />} />
                 <Route path="change-password" element={<ChangePassword />} />
-                {user?.role && (
-                  <Route path="members" element={<RegisteredMembers />} />
+                {user?.role === "admin" && (
+                  <>
+                    <Route path="members" element={<RegisteredMembers />} />
+                    <Route
+                      path="update-member"
+                      element={<AdminUpdateMember />}
+                    />
+
+                    <Route
+                      path="update-member/idx"
+                      element={<UpdateMemberForm />}
+                    />
+                  </>
                 )}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Fragment>
