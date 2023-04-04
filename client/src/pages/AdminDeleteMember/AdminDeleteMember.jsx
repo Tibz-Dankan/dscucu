@@ -8,10 +8,10 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MasterLayout from "../../components/layouts/MasterLayout/MasterLayout";
 import { User } from "../../utils/user";
 import { Link } from "react-router-dom";
-import "./AdminUpdateMember.css";
+import "./AdminDeleteMember.css";
 import { useUpdateProfile } from "../../context/ProfileContext";
 
-const AdminUpdateMember = () => {
+const AdminDeleteMember = () => {
   const users = new User().findAll();
   const updateMember = useUpdateProfile({});
 
@@ -47,9 +47,8 @@ const AdminUpdateMember = () => {
   };
 
   return (
-    <MasterLayout title="Update Member">
+    <MasterLayout title="Delete Members">
       {/* List of members for update */}
-
       <Box
         style={{
           display: "flex",
@@ -57,7 +56,7 @@ const AdminUpdateMember = () => {
           alignItems: "center",
         }}
       >
-        <Typography>Update Members</Typography>
+        <Typography>Delete Members</Typography>
         <Grid
           container
           spacing={4}
@@ -117,7 +116,7 @@ const AdminUpdateMember = () => {
                           }}
                           to="idx"
                         >
-                          Update member
+                          Delete member
                         </Link>
                       </Button>
                     </CardActions>
@@ -132,4 +131,4 @@ const AdminUpdateMember = () => {
   );
 };
 
-export default AdminUpdateMember;
+export default AdminDeleteMember;

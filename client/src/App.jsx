@@ -13,6 +13,8 @@ import { useLoggedIn, useUpdateLoggedIn } from "./context/AuthContext";
 import RegisteredMembers from "./pages/RegisteredMembers/RegisteredMembers";
 import AdminUpdateMember from "./pages/AdminUpdateMember/AdminUpdateMember";
 import UpdateMemberForm from "./components/UI/UpdateMemberForm/UpdateMemberForm";
+import AdminDeleteMember from "./pages/AdminDeleteMember/AdminDeleteMember";
+import DeleteMemberForm from "./components/UI/DeleteMemberForm/DeleteMemberForm";
 
 function App() {
   const isLoggedIn = useLoggedIn();
@@ -88,6 +90,15 @@ function App() {
                     <Route
                       path="update-member/idx"
                       element={<UpdateMemberForm />}
+                    />
+                    <Route
+                      path="delete-member"
+                      element={<AdminDeleteMember />}
+                    />
+
+                    <Route
+                      path="delete-member/idx"
+                      element={<DeleteMemberForm />}
                     />
                   </>
                 )}

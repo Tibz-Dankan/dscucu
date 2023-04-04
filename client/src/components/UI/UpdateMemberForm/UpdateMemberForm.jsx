@@ -9,12 +9,10 @@ import "./UpdateMemberForm.css";
 import { useProfile } from "../../../context/ProfileContext";
 import MasterLayout from "../../layouts/MasterLayout/MasterLayout";
 
-const UpdateMemberForm = (props) => {
+const UpdateMemberForm = () => {
   const member = useProfile();
 
   const id = member.id;
-  console.log("id in the member update form");
-  console.log(id);
   const user = new User().findById(id);
 
   const [formData, setFormData] = useState(user);

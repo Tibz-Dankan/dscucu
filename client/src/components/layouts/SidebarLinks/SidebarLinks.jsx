@@ -73,7 +73,7 @@ export const secondaryListItems = (
       <ListItemIcon>
         <DeleteIcon />
       </ListItemIcon>
-      <Link to="my-profile" className="sidebar-link">
+      <Link to="delete-member" className="sidebar-link">
         Delete Member
       </Link>
     </ListItemButton>

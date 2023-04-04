@@ -105,7 +105,13 @@ export class User {
   }
 
   delete(id) {
+    if (!id) {
+      this.errors.id = "Please provide user id";
+      return;
+    }
     const updatedUsers = this.users.filter((user) => user.id !== id);
+    console.log("updatedUsers after deleting!");
+    console.log(updatedUsers);
     this.saveToStorage(updatedUsers);
   }
 
