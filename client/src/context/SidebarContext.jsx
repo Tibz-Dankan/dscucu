@@ -1,3 +1,5 @@
+// changing the sidebar state btn header and sidebar components
+
 import { createContext, useContext, useState } from "react";
 
 const IsOpenContext = createContext(true);

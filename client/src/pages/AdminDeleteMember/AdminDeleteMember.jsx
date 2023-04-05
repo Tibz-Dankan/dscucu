@@ -19,6 +19,7 @@ const AdminDeleteMember = () => {
     updateMember(member);
   };
 
+  // function computes and returns date in the format   -> Sun mar 03 2023;
   const day = (dateParam) => {
     if (!dateParam) {
       const defaultDate = new Date("2023-04-03T12:05:50.000Z");
@@ -28,6 +29,7 @@ const AdminDeleteMember = () => {
     return date.toDateString(); // provides format  -> Sun Jul 03 2022;
   };
 
+  // function computes and returns time in the format  -> 3:47 AM
   const time = (dateParam) => {
     if (!dateParam) {
       const defaultDate = new Date("2023-04-03T14:00:00.000Z");

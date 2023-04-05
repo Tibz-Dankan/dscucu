@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const user = new User();
 
+// Class Auth to handle user authentication
 export class Auth {
   auth;
   constructor() {

@@ -1,10 +1,12 @@
 let url;
+// dynamically assign url basing on the environment
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
   url = "http://localhost:8000";
 } else {
   url = "https://dscucu.onrender.com";
 }
 
+// API call to send info  to receive a notification email
 export const confirmEmail = async (userObj) => {
   try {
     const response = await fetch(`${url}/api/confirm-email`, {
@@ -30,7 +32,7 @@ export const confirmEmail = async (userObj) => {
     console.log(err.message);
   }
 };
-
+// Make API request to
 export const wakeUpServer = async () => {
   try {
     const response = await fetch(`${url}/api/wake-up-server`, {

@@ -18,6 +18,7 @@ const DeleteMemberForm = () => {
   const [errors, setErrors] = useState({});
   const [isSuccessful, setIsSuccessful] = useState(false);
 
+  // function compute date and returns the format -> Sun Jul 01 2023;
   const day = (dateParam) => {
     if (!dateParam) {
       const defaultDate = new Date("2023-04-03T12:05:50.000Z");
@@ -27,6 +28,7 @@ const DeleteMemberForm = () => {
     return date.toDateString(); // provides format  -> Sun Jul 03 2022;
   };
 
+  // function compute date and returns the format  -> 3:47 AM;
   const time = (dateParam) => {
     if (!dateParam) {
       const defaultDate = new Date("2023-04-03T14:00:00.000Z");

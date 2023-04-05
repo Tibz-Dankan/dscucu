@@ -20,6 +20,7 @@ const UpdateMemberForm = () => {
   const [errors, setErrors] = useState({});
   const [isSuccessful, setIsSuccessful] = useState(false);
 
+  // validate error messages
   const validate = () => {
     let errors = {};
     if (!formData.firstName.trim()) {
@@ -41,6 +42,7 @@ const UpdateMemberForm = () => {
     return errors;
   };
 
+  // handle submit form data
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -64,6 +66,7 @@ const UpdateMemberForm = () => {
     setIsSuccessful(true);
   };
 
+  // handle onchange events
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });

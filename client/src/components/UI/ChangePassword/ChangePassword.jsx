@@ -22,6 +22,7 @@ const ChangePassword = () => {
   const [errors, setErrors] = useState({});
   const [isSuccessful, setIsSuccessful] = useState(false);
 
+  // function to validate users during register
   const validate = () => {
     let errors = {};
     if (!formData.currentPassword.trim()) {
@@ -48,6 +49,7 @@ const ChangePassword = () => {
     return errors;
   };
 
+  // function to handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
 

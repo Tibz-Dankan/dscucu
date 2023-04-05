@@ -33,6 +33,7 @@ const styles = {
 };
 
 export default function Home() {
+  // Wake up the server on every render
   useEffect(() => {
     const wakeUpServerHandler = async () => {
       await wakeUpServer();

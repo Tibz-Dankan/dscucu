@@ -42,6 +42,7 @@ export default function RegisterAdmin() {
     128456, 789012, 345678, 901234, 567890, 234567, 890123, 456789,
   ];
 
+  // function to check all admin tokens
   const checkTokenExists = (tokenArr, token) => {
     for (let i = 0; i < tokenArr.length; i++) {
       if (tokenArr[i] == token) {
@@ -51,6 +52,7 @@ export default function RegisterAdmin() {
     return false;
   };
 
+  // validating form errors
   const validate = () => {
     let errors = {};
     if (!formData.firstName.trim()) {
@@ -95,6 +97,7 @@ export default function RegisterAdmin() {
     });
   };
 
+  // handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();

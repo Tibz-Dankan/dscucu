@@ -26,6 +26,7 @@ function App() {
     setUser(state);
   };
 
+  // Try login user on every render of the component
   useEffect(() => {
     const tryLogin = () => {
       const authData = localStorage.getItem("auth");

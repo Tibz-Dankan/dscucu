@@ -17,6 +17,7 @@ const UpdateProfile = () => {
   const [errors, setErrors] = useState({});
   const [isSuccessful, setIsSuccessful] = useState(false);
 
+  // validate errors in the form data
   const validate = () => {
     let errors = {};
     if (!formData.firstName.trim()) {
@@ -38,6 +39,7 @@ const UpdateProfile = () => {
     return errors;
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 

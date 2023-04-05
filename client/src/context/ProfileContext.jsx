@@ -1,3 +1,5 @@
+// updating and accessing profile context
+
 import { createContext, useContext, useState } from "react";
 
 const ProfileContext = createContext({});

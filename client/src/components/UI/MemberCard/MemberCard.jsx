@@ -14,6 +14,7 @@ import "./MemberCard.css";
 import { useUpdateProfile } from "../../../context/ProfileContext";
 
 const MemberCard = (props) => {
+  // profile information of context via an exposed
   const updateProfile = useUpdateProfile({});
 
   const handleUpdateProfile = (payload) => {

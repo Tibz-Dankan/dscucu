@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
+// Class to handle all user operations
 export class User {
   users = [];
   errors = {};

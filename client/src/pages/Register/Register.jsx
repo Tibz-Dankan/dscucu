@@ -77,6 +77,7 @@ export default function Register() {
     });
   };
 
+  // validating  error here
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -97,17 +98,14 @@ export default function Register() {
 
     const emailconfirm = await confirmEmail(newUser);
     if (emailconfirm.error) {
-      console.log("emailconfirm.error");
-      console.log(emailconfirm.error);
       setEmailConfirmation(emailconfirm.error);
     }
     if (emailconfirm.data) {
-      console.log("emailconfirm.data");
-      console.log(emailconfirm.data);
       setEmailConfirmation(emailconfirm.data);
     }
   };
 
+  // handle from on change event
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });

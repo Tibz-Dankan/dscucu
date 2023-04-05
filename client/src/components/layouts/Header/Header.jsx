@@ -22,6 +22,7 @@ import "./Header.css";
 
 const drawerWidth = 240;
 
+// funcion to handle opening of sidebar
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
@@ -62,6 +63,7 @@ const Header = (props) => {
 
   const [isMediumScreen, setIsMediumScreen] = useState(false);
 
+  // check browser width
   const windowWidth = window.innerWidth;
   useEffect(() => {
     console.log("windowWidth");

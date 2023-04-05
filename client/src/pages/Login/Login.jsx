@@ -32,6 +32,7 @@ export default function Login() {
   const isLoggedIn = useLoggedIn();
   const updateLoggedIn = useUpdateLoggedIn(false);
 
+  // validating form errors
   const validate = () => {
     let errs = {};
     if (!formData.email.trim()) {
@@ -45,6 +46,7 @@ export default function Login() {
     return errs;
   };
 
+  //  Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -69,11 +71,12 @@ export default function Login() {
       }
       return;
     }
-    // TODO: redirect to members page
+
     updateLoggedIn(true);
     navigate("/", { replace: true });
   };
 
+  // handle input onchange event
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });

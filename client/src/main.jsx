@@ -5,6 +5,7 @@ import "./index.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ContextProvider } from "./context/ContextProvider";
 
+// Theme for the entire app
 const theme = createTheme({
   typography: {
     fontSize: 20,

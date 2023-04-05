@@ -21,6 +21,7 @@ import {
 
 const drawerWidth = 240;
 
+// close sidebar
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
