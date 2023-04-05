@@ -15,6 +15,7 @@ import AdminUpdateMember from "./pages/AdminUpdateMember/AdminUpdateMember";
 import UpdateMemberForm from "./components/UI/UpdateMemberForm/UpdateMemberForm";
 import AdminDeleteMember from "./pages/AdminDeleteMember/AdminDeleteMember";
 import DeleteMemberForm from "./components/UI/DeleteMemberForm/DeleteMemberForm";
+import LoginAdmin from "./pages/LoginAdmin/LoginAdmin";
 
 function App() {
   const isLoggedIn = useLoggedIn();
@@ -59,6 +60,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="register" element={<Register />} />
               <Route path="register-admin" element={<RegisterAdmin />} />
+              <Route path="login-admin" element={<LoginAdmin />} />
               <Route path="login" element={<Login />} />
               <Route path="profile" element={<Profile />} />
               <Route
