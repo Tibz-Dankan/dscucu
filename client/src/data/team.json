@@ -68,5 +68,19 @@
     "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680484650/DSC_UCU/Activities/member-ten-image_lglj3d.png",
     "role": "Data Scientist",
     "description": "Suzie is responsible for analyzing user data and feedback to make data-driven decisions for the application."
+  },
+  {
+    "id": 11,
+    "name": "Martel Inglesie",
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680659033/DSC_UCU/Members/member-image-eleven_jd79ej.png",
+    "role": "Backend Developer",
+    "description": "Martel is responsible for developing and maintaining the backend codebase of the application, managing the database, and ensuring that data is properly handled and secured."
+  },
+  {
+    "id": 12,
+    "name": "Moris Wonder world",
+    "image": "https://res.cloudinary.com/dlmv4ot9h/image/upload/v1680659074/DSC_UCU/Members/member-image-twelve_jvzywx.png",
+    "role": "Quality Assurance Tester",
+    "description": "Moris is responsible for testing the frontend of the application, ensuring that it is bug-free and functioning correctly."
   }
 ]
