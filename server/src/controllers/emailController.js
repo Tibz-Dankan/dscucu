@@ -35,6 +35,7 @@ router.post("/confirm-email", async (req, res) => {
   }
 });
 
+// wake the server from  the sleep mode
 router.post("/wake-up-server", async (req, res) => {
   try {
     const body = req.body;

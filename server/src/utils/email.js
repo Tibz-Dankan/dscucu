@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
+// class to handle sending of emails
 class Email {
   recipients;
   constructor(recipients) {

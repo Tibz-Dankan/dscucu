@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "production") {
 app.use("/api", emailController);
 
 const port = 8000 || process.env.PORT;
-
+// start a nodejs server
 app.listen(port, () =>
   console.log(`server started and running on port ${port}...`)
 );
