@@ -351,8 +351,8 @@ export default function RegisterAdmin() {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/login" variant="body2">
-                  {"Already have an account? Log In"}
+                <Link href="/login-admin" variant="body2">
+                  {"Already have an account? Log In as Admin"}
                 </Link>
               </Grid>
             </Grid>
