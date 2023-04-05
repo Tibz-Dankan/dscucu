@@ -174,7 +174,7 @@ const LoginAdmin = () => {
           <Grid container>
             <Grid item>
               <Link href="/register-admin" variant="body2">
-                {"Don't have an account? Sign Up"}
+                {"Don't have an account? Sign Up as Admin"}
               </Link>
             </Grid>
           </Grid>

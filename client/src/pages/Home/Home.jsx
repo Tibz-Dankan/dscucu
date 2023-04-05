@@ -13,7 +13,7 @@ import ActivityCard from "../../components/UI/ActivityCard/ActivityCard";
 import activities from "../../data/activities.json";
 import team from "../../data/team.json";
 import MemberCard from "../../components/UI/MemberCard/MemberCard";
-// import heroBgImage from "../../assets/hero-bg-image.png";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import Paper from "@mui/material/Paper";
 import Footer from "../../components/layouts/Footer/Footer";
 import { wakeUpServer } from "../../API/email";
@@ -59,11 +59,23 @@ export default function Home() {
             >
               DSC_UCU
             </Typography>
-            <div>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <Link
+                to="/login-admin"
+                style={{
+                  marginRight: "5px",
+                  color: "#fff",
+                  textDecoration: "none",
+                }}
+              >
+                <AdminPanelSettingsIcon
+                  style={{ width: "30px", height: "30px" }}
+                />
+              </Link>
               <Link
                 to="/login"
                 style={{
-                  marginRight: "10px",
+                  marginRight: "5px",
                   color: "#fff",
                   textDecoration: "none",
                 }}
