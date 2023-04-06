@@ -70,40 +70,45 @@ const RegisteredMembers = () => {
             marginTop: "8px",
           }}
         >
-          {users.map((user, index) => (
-            <Grid item key={index} xs={12} sm={6} md={4}>
-              <Box
-                sx={{
-                  height: "100%",
-                  minWidth: "180px",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  // bgcolor: "#f1f3f5",
-                }}
-              >
-                <IconButton>
-                  <AccountCircleIcon
-                    style={{
-                      width: "60px",
-                      height: "60px",
-                      color: "#868e96",
+          {users.map((user, index) => {
+            if (user.role !== "admin") {
+              return (
+                <Grid item key={index} xs={12} sm={6} md={4}>
+                  <Box
+                    sx={{
+                      height: "100%",
+                      minWidth: "180px",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      // bgcolor: "#f1f3f5",
                     }}
-                  />
-                </IconButton>
-                <CardContent sx={{ flexGrow: 1, textAlign: "center" }}>
-                  <Typography gutterBottom variant="h6" component="h2">
-                    {user.firstName} {user.lastName}
-                  </Typography>
-                  <Typography>{user.email}</Typography>
-                  <Typography>{user.phone}</Typography>
-                  <Typography>
-                    Member since {day(user.createdAt)} {time(user.createdAt)}
-                  </Typography>
-                </CardContent>
-              </Box>
-            </Grid>
-          ))}
+                  >
+                    <IconButton>
+                      <AccountCircleIcon
+                        style={{
+                          width: "60px",
+                          height: "60px",
+                          color: "#868e96",
+                        }}
+                      />
+                    </IconButton>
+                    <CardContent sx={{ flexGrow: 1, textAlign: "center" }}>
+                      <Typography gutterBottom variant="h6" component="h2">
+                        {user.firstName} {user.lastName}
+                      </Typography>
+                      <Typography>{user.email}</Typography>
+                      <Typography>{user.phone}</Typography>
+                      <Typography>
+                        Member since {day(user.createdAt)}{" "}
+                        {time(user.createdAt)}
+                      </Typography>
+                    </CardContent>
+                  </Box>
+                </Grid>
+              );
+            }
+          })}
         </Grid>
       </Box>
     </MasterLayout>
