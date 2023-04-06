@@ -57,7 +57,7 @@ const LoginAdmin = () => {
     const user = new Auth();
     const authUser = new User().findByEmail(formData.email);
 
-    const isAuthenticated = user.authenticate(
+    const isAuthenticated = user.authenticateAdmin(
       formData.email,
       formData.password
     );
@@ -66,10 +66,6 @@ const LoginAdmin = () => {
     if (!isAuthenticated) {
       if (err.email) {
         setErrors({ email: err.email });
-      }
-      if (authUser?.role !== "admin") {
-        setErrors({ email: "Email address used is not for the admin!" });
-        return;
       }
       if (err.password) {
         setErrors({ password: err.password });

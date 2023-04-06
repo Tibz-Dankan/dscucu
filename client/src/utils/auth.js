@@ -21,7 +21,10 @@ export class Auth {
       this.errors.email = "Provided email is not registered!";
       return;
     }
-
+    if (user.role !== "user") {
+      this.errors.email = "Provided email is not for the member!";
+      return;
+    }
     if (user.password != password) {
       this.errors.password = "Provided incorrect password!";
       return;
@@ -37,6 +40,31 @@ export class Auth {
 
     console.log("this.auth");
     console.log(this.auth);
+    return true;
+  }
+
+  authenticateAdmin(email, password) {
+    const user = new User().findByEmail(email);
+    if (!user) {
+      this.errors.email = "Provided email is not registered!";
+      return;
+    }
+    if (user.role !== "admin") {
+      this.errors.email = "Provided email is not for the admin!";
+      return;
+    }
+    if (user.password != password) {
+      this.errors.password = "Provided incorrect password!";
+      return;
+    }
+    const expiresInHours = 1000 * 60 * 60 * 2;
+
+    user.password = "";
+    this.auth.user = user;
+
+    this.auth.token = uuidv4();
+    this.auth.expiresAt = new Date(Date.now() + expiresInHours).toISOString();
+    this.saveToStorage(this.auth);
     return true;
   }
 
