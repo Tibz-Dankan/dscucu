@@ -54,6 +54,9 @@ export default function Register() {
     } else if (!/^[0-9]+$/.test(formData.phone)) {
       errors.phone = "Invalid phone number";
     }
+    if (formData.phone.length !== 10) {
+      errors.phone = "Phone number must be 10 digits";
+    }
     if (!formData.password.trim() || formData.password.length <= 5) {
       errors.password = "Password must be greater than 5 characters";
     }
